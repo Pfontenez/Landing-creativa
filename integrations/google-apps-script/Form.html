@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{font-family:'DM Sans',Arial,sans-serif;color:#171c20;background:#f3f3ee}
+    *{box-sizing:border-box}body{margin:0}form{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px;padding:4px 0 20px}
+    label{display:block;font-weight:700;font-size:1rem;margin-bottom:9px}
+    input,select,textarea{display:block;width:100%;font:500 1rem 'DM Sans',Arial,sans-serif;color:#171c20;background:#f3f3ee;border:1px solid #171c20;border-radius:0;padding:17px 16px;min-height:58px}
+    textarea{resize:vertical;min-height:155px;line-height:1.5}input:focus,select:focus,textarea:focus{outline:3px solid #dcff55;outline-offset:2px}
+    .full{grid-column:1/-1}.hint{font-size:.9rem;line-height:1.5;margin:0}.actions{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    button{cursor:pointer;background:#171c20;color:#dcff55;border:1px solid #171c20;border-radius:100px;padding:17px 25px;font:700 1rem 'DM Sans',Arial,sans-serif;white-space:nowrap}
+    button:disabled{opacity:.6;cursor:wait}button:focus-visible{outline:3px solid #171c20;outline-offset:3px}
+    .message{grid-column:1/-1;padding:18px 20px;border:1px solid #171c20;line-height:1.5}
+    .message[hidden],.trap{display:none!important}.message.success{background:#dcff55}
+    @media(max-width:640px){form{grid-template-columns:1fr;gap:22px}.actions{align-items:stretch;flex-direction:column-reverse}.actions button{align-self:stretch}}
+  </style>
+</head>
+<body>
+  <form id="inquiry-form">
+    <div><label for="name">Tu nombre *</label><input id="name" name="name" autocomplete="name" maxlength="80" required></div>
+    <div><label for="company">Empresa *</label><input id="company" name="company" autocomplete="organization" maxlength="100" required></div>
+    <div class="full"><label for="email">Tu correo *</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+    <div><label for="point">¿En qué punto estás? *</label><select id="point" name="point" required><option value="">Elegí una opción</option><option>Tengo una idea.</option><option>No sé por dónde empezar.</option><option>Ya tengo un brief.</option><option>Tengo el contenido.</option><option>Necesito solamente diseño.</option><option>Hay una campaña en marcha.</option><option>Me quedé trabado.</option></select></div>
+    <div><label for="service">¿Qué necesitás? *</label><select id="service" name="service" required><option value="">Elegí una opción</option><option>Diseño multimedia</option><option>Dupla creativa</option><option>No estoy seguro</option></select></div>
+    <div class="full"><label for="description">Contanos brevemente el proyecto *</label><textarea id="description" name="description" minlength="20" maxlength="1500" placeholder="Qué querés comunicar, qué tenés hecho y qué te gustaría resolver..." required></textarea></div>
+    <div class="trap" aria-hidden="true"><label for="website">Sitio web</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+    <div class="full actions"><p class="hint">Usaremos estos datos para responder a tu consulta. Recibirás una copia en tu correo.</p><button type="submit">Contanos tu proyecto ↗</button></div>
+    <div id="status" class="message" role="status" aria-live="polite" hidden></div>
+  </form>
+  <script>
+    const form = document.querySelector('#inquiry-form');
+    const status = document.querySelector('#status');
+    const button = form.querySelector('button[type="submit"]');
+    const startedAt = Date.now();
+    function resize() {
+      window.parent.postMessage({type:'pablo-contact-form-height',height:document.documentElement.scrollHeight},'*');
+    }
+    new ResizeObserver(resize).observe(document.body);
+    window.addEventListener('load',resize);
+    function show(message,success) {
+      status.textContent=message;
+      status.classList.toggle('success',success);
+      status.hidden=false;
+      button.disabled=false;
+      button.textContent='Contanos tu proyecto ↗';
+      resize();
+    }
+    form.addEventListener('submit',event=>{
+      event.preventDefault();
+      if(!form.reportValidity()) return;
+      button.disabled=true;
+      button.textContent='Enviando...';
+      status.hidden=true;
+      const payload=Object.fromEntries(new FormData(form));
+      payload.startedAt=startedAt;
+      google.script.run
+        .withSuccessHandler(result=>{
+          if(result && result.ok) {
+            form.querySelectorAll('input,select,textarea,button').forEach(field=>field.disabled=true);
+            show(result.receiptSent
+              ? 'Recibimos tu consulta. Te enviamos una copia a tu correo y te responderemos a la brevedad.'
+              : 'Recibimos tu consulta, pero no pudimos enviarte la copia. Te responderemos a la brevedad.',true);
+            button.hidden=true;
+          } else show('No pudimos enviar el formulario. Probá de nuevo o escribinos por WhatsApp.',false);
+        })
+        .withFailureHandler(error=>show(error && error.message ? error.message : 'No pudimos enviar el formulario. Probá de nuevo o escribinos por WhatsApp.',false))
+        .submitInquiry(payload);
+    });
+  </script>
+</body>
+</html>
