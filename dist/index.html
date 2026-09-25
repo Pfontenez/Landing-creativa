@@ -1,234 +1,1379 @@
 <!doctype html>
 <html lang="es-AR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171c20">
-  <meta name="description" content="Diseño y comunicación para PyMEs argentinas. Nos sumamos desde el punto en el que estés para llevar tus ideas a piezas concretas.">
+  <meta name="description"
+    content="Diseño y comunicación para PyMEs argentinas. Nos sumamos desde el punto en el que estés para llevar tus ideas a piezas concretas.">
   <title>Desde donde estás — Diseño y dupla creativa</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23171c20'/%3E%3Cpath d='M13 50V16h12v20h14V16h12v34' fill='none' stroke='%23dcff55' stroke-width='6'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23171c20'/%3E%3Cpath d='M13 50V16h12v20h14V16h12v34' fill='none' stroke='%23dcff55' stroke-width='6'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
+    .work-visual {
+      cursor: zoom-in;
+    }
 
-.work-visual {
-  cursor: zoom-in;
-}
+    .image-modal {
+      width: min(95vw, 1200px);
+      max-width: none;
+      max-height: 95vh;
+      padding: 16px;
+      border: 0;
+      background: #171c20;
+      overflow: visible;
+    }
 
-.image-modal {
-  width: min(95vw, 1200px);
-  max-width: none;
-  max-height: 95vh;
-  padding: 16px;
-  border: 0;
-  background: #171c20;
-  overflow: visible;
-}
+    .image-modal::backdrop {
+      background: rgba(0, 0, 0, .85);
+    }
 
-.image-modal::backdrop {
-  background: rgba(0, 0, 0, .85);
-}
+    .image-modal img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(95vh - 32px);
+      width: auto;
+      height: auto;
+      margin: auto;
+      object-fit: contain;
+    }
 
-.image-modal img {
-  display: block;
-  max-width: 100%;
-  max-height: calc(95vh - 32px);
-  width: auto;
-  height: auto;
-  margin: auto;
-  object-fit: contain;
-}
+    .image-modal-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(35%, -35%);
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      background: #dcff55;
+      color: #171c20;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+    }
 
-.image-modal-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(35%, -35%);
-  width: 40px;
-  height: 40px;
-  border: 0;
-  border-radius: 50%;
-  background: #dcff55;
-  color: #171c20;
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-}
+    .work-card {
+      margin: 0;
+    }
 
-    .work-card { margin: 0; }
-.work-visual { padding: 0; }
-.work-visual::before { display: none; }
-.work-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-    :root{font-family:'DM Sans',Arial,sans-serif;color:#171c20;background:#f3f3ee;scroll-behavior:smooth}*{box-sizing:border-box}body{margin:0}a{color:inherit}button{font:inherit}.wrap{width:min(100% - 64px,1440px);margin:auto}.eyebrow{font:700 .82rem 'Space Grotesk',sans-serif;letter-spacing:.13em;text-transform:uppercase}.display,h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif;letter-spacing:-.055em}h1,h2,h3,p{margin-top:0}p{line-height:1.55}header{position:absolute;z-index:10;top:0;left:0;width:100%;color:#f3f3ee}.nav{height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f3f3ee}.brand{font:700 1.15rem 'Space Grotesk',sans-serif;letter-spacing:-.055em;text-decoration:none}.brand span{color:#dcff55}.nav a:last-child{font-size:.88rem;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:5px}.hero{background:#171c20;color:#f3f3ee;min-height:92svh;display:flex;align-items:end;overflow:hidden;position:relative}.hero:after{content:'';position:absolute;width:34vw;height:34vw;border:1px solid #dcff55;transform:rotate(25deg);right:-16vw;top:12%;border-radius:50%;opacity:.45}.hero-inner{padding:190px 0 70px;position:relative;z-index:1}.hero h1{font-size:clamp(4rem,10.3vw,10rem);line-height:.93;max-width:1250px;margin:45px 0 42px;font-weight:600}.hero h1 em{font-style:normal;color:#dcff55}.hero-bottom{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:32px}.hero-bottom p{font-size:clamp(1.1rem,1.8vw,1.45rem);max-width:630px;margin:0}.pill{display:inline-flex;gap:28px;align-items:center;text-decoration:none;border:1px solid currentColor;border-radius:100px;padding:15px 22px;font-weight:700;justify-self:end;transition:.2s}.pill:hover{background:#dcff55;color:#171c20;border-color:#dcff55}.pill span{font-size:1.4rem}.section{padding:130px 0}.section-head{display:flex;justify-content:space-between;gap:40px;align-items:start;margin-bottom:65px}.section-head h2{font-size:clamp(3.2rem,6.5vw,7rem);line-height:1.02;max-width:950px;margin:0}.section-head p{max-width:340px;font-size:1.1rem;margin-top:12px}.journey{background:#dcff55;overflow:hidden}.journey .section-head{margin-bottom:80px}.journey-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw}.entry-list{list-style:none;margin:0;padding:0;position:relative}.entry-list:before{content:'';position:absolute;top:17px;bottom:18px;left:15px;width:2px;background:#171c20}.entry-list li{position:relative;padding:0 0 42px 55px;font:500 clamp(1.35rem,2.5vw,2.6rem) 'Space Grotesk',sans-serif;letter-spacing:-.045em}.entry-list li:last-child{padding-bottom:0}.entry-list li:before{content:'';position:absolute;left:6px;top:.33em;width:20px;height:20px;border-radius:50%;background:#dcff55;border:2px solid #171c20}.entry-list li:nth-child(3):before,.entry-list li:nth-child(6):before{background:#171c20}.journey-aside{align-self:end;border-top:2px solid #171c20;padding-top:28px}.journey-aside strong{font:600 clamp(2rem,3.7vw,4.2rem)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.055em;display:block}.journey-aside p{font-size:1.1rem;max-width:430px;margin:24px 0 0}.modes{background:#f3f3ee}.mode-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #171c20}.mode{padding:34px 6vw 50px 0;min-height:480px;display:flex;flex-direction:column}.mode+.mode{border-left:1px solid #171c20;padding-left:6vw;padding-right:0}.mode-num{font-size:.9rem;font-weight:700}.mode h3{font-size:clamp(3.5rem,6vw,7rem);line-height:1;margin:55px 0 22px}.mode .lead{font-size:clamp(1.35rem,2vw,2rem);line-height:1.25;font-family:'Space Grotesk',sans-serif;letter-spacing:-.035em;max-width:510px}.mode p:last-child{max-width:470px;margin:auto 0 0;font-size:1.08rem}.mode:first-child h3:after{content:'↗';color:#dcff55;font-size:.5em;vertical-align:top;margin-left:.15em}.services{background:#171c20;color:#f3f3ee}.services .section-head{border-bottom:1px solid #f3f3ee;padding-bottom:60px}.service-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.service{border-top:1px solid #f3f3ee;padding:20px 10px 28px 0;min-height:145px}.service span{color:#dcff55;font-size:.8rem}.service h3{font-size:clamp(1.4rem,2.1vw,2.3rem);line-height:1.12;margin:26px 0 0;font-weight:500}.work{background:#f3f3ee}.work-note{max-width:550px;color:#171c20}.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:60px 24px}.work-card{text-decoration:none;display:block}.work-card:nth-child(even){transform:translateY(85px)}.work-visual{height:clamp(270px,34vw,500px);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;padding:35px;background:#171c20}.work-card:nth-child(2) .work-visual{background:#f3f3ee;color:#171c20}.work-card:nth-child(3) .work-visual{background:#171c20}.work-card:nth-child(4) .work-visual{background:#f3f3ee}.work-visual:before{content:'';position:absolute;width:68%;aspect-ratio:1;border:1px solid currentColor;border-radius:50%;transform:translate(50%,30%);opacity:.35}.work-visual span{position:relative;font:600 clamp(2.7rem,5vw,5.5rem)/.95 'Space Grotesk',sans-serif;letter-spacing:-.075em;max-width:85%;text-align:center}.work-label{display:flex;justify-content:space-between;gap:20px;padding-top:18px;border-top:1px solid #171c20;margin-top:15px;font-size:.9rem}.work-label strong{font-size:1.2rem;font-weight:600}.work-card:hover .work-visual span{transform:scale(1.035);transition:transform .25s}.work-bottom{margin-top:150px;font-size:.95rem}.working{background:#f3f3ee}.working-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.working-card{border-top:2px solid #171c20;padding:28px 0 0;min-height:200px}.working-card h3{font-size:clamp(2rem,3vw,3.6rem);margin-bottom:20px}.working-card p{max-width:460px;font-size:1.1rem}.contact{background:#dcff55;padding:130px 0 60px}.contact h2{font-size:clamp(4.2rem,10vw,11rem);line-height:.92;max-width:1200px;margin:55px 0 75px}.contact-actions{display:flex;gap:18px;flex-wrap:wrap}.contact-actions a{display:inline-flex;align-items:center;gap:40px;text-decoration:none;font-size:1.1rem;font-weight:700;border:1px solid #171c20;border-radius:50px;padding:18px 25px}.contact-actions a:first-child{background:#171c20;color:#dcff55}.contact-actions a:hover{transform:translateY(-3px)}footer{margin-top:140px;border-top:1px solid #171c20;padding-top:25px;display:flex;justify-content:space-between;gap:25px;font-size:.9rem}.muted{opacity:.72}@media(max-width:800px){.wrap{width:min(100% - 36px,1440px)}.nav{height:72px}.hero{min-height:90svh}.hero-inner{padding:150px 0 48px}.hero h1{font-size:clamp(3.4rem,12.5vw,6.5rem);margin:45px 0}.hero-bottom,.journey-grid,.mode-grid,.working-grid{grid-template-columns:1fr}.hero-bottom .pill{justify-self:start}.section{padding:85px 0}.section-head{display:block;margin-bottom:50px}.section-head p{margin-top:26px}.journey .section-head{margin-bottom:55px}.journey-grid{gap:80px}.mode{min-height:0;padding:25px 0 55px}.mode+.mode{border-left:0;border-top:1px solid #171c20;padding:25px 0 0}.mode h3{margin:35px 0 20px}.mode p:last-child{margin:45px 0 0}.services .section-head{padding-bottom:40px}.service-list{grid-template-columns:repeat(2,1fr)}.work-grid{gap:45px 18px}.work-card:nth-child(even){transform:none}.work-visual{height:300px}.work-bottom{margin-top:55px}.contact{padding:90px 0 35px}.contact h2{margin:45px 0 55px}footer{margin-top:100px}}@media(max-width:560px){.eyebrow{font-size:.75rem}.hero h1{font-size:clamp(3.2rem,13vw,5rem)}.hero-bottom p{font-size:1.08rem}.section-head h2{font-size:clamp(3rem,11vw,4.5rem)}.service-list,.work-grid{grid-template-columns:1fr}.service{min-height:105px}.service h3{margin-top:16px}.work-visual{height:350px}.work-card:nth-child(even){transform:none}.work-bottom{margin-top:55px}.contact h2{font-size:clamp(3.6rem,13vw,6rem)}.contact-actions{flex-direction:column;align-items:stretch}.contact-actions a{justify-content:space-between}footer{flex-direction:column;margin-top:90px}}@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*{transition:none!important}}
+    .work-visual {
+      padding: 0;
+    }
+
+    .work-visual::before {
+      display: none;
+    }
+
+    .work-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    :root {
+      font-family: 'DM Sans', Arial, sans-serif;
+      color: #171c20;
+      background: #f3f3ee;
+      scroll-behavior: smooth
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0
+    }
+
+    a {
+      color: inherit
+    }
+
+    button {
+      font: inherit
+    }
+
+    .wrap {
+      width: min(100% - 64px, 1440px);
+      margin: auto
+    }
+
+    .eyebrow {
+      font: 700 .82rem 'Space Grotesk', sans-serif;
+      letter-spacing: .13em;
+      text-transform: uppercase
+    }
+
+    .display,
+    h1,
+    h2,
+    h3 {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      letter-spacing: -.055em
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0
+    }
+
+    p {
+      line-height: 1.55
+    }
+
+    header {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: #f3f3ee
+    }
+
+    .nav {
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f3f3ee
+    }
+
+    .brand {
+      font: 700 1.15rem 'Space Grotesk', sans-serif;
+      letter-spacing: -.055em;
+      text-decoration: none
+    }
+
+    .brand span {
+      color: #dcff55
+    }
+
+    .nav a:last-child {
+      font-size: .88rem;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 5px
+    }
+
+    .hero {
+      background: #171c20;
+      color: #f3f3ee;
+      min-height: 92svh;
+      display: flex;
+      align-items: end;
+      overflow: hidden;
+      position: relative
+    }
+
+    .hero:after {
+      content: '';
+      position: absolute;
+      width: 34vw;
+      height: 34vw;
+      border: 1px solid #dcff55;
+      transform: rotate(25deg);
+      right: -16vw;
+      top: 12%;
+      border-radius: 50%;
+      opacity: .45
+    }
+
+    .hero-inner {
+      padding: 190px 0 70px;
+      position: relative;
+      z-index: 1
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 10.3vw, 10rem);
+      line-height: .93;
+      max-width: 1250px;
+      margin: 45px 0 42px;
+      font-weight: 600
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #dcff55
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 32px
+    }
+
+    .hero-bottom p {
+      font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+      max-width: 630px;
+      margin: 0
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 28px;
+      align-items: center;
+      text-decoration: none;
+      border: 1px solid currentColor;
+      border-radius: 100px;
+      padding: 15px 22px;
+      font-weight: 700;
+      justify-self: end;
+      transition: .2s
+    }
+
+    .pill:hover {
+      background: #dcff55;
+      color: #171c20;
+      border-color: #dcff55
+    }
+
+    .pill span {
+      font-size: 1.4rem
+    }
+
+    .section {
+      padding: 130px 0
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 65px
+    }
+
+    .section-head h2 {
+      font-size: clamp(3.2rem, 6.5vw, 7rem);
+      line-height: 1.02;
+      max-width: 950px;
+      margin: 0
+    }
+
+    .section-head p {
+      max-width: 340px;
+      font-size: 1.1rem;
+      margin-top: 12px
+    }
+
+    .journey {
+      background: #dcff55;
+      overflow: hidden
+    }
+
+    .journey .section-head {
+      margin-bottom: 80px
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8vw
+    }
+
+    .entry-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative
+    }
+
+    .entry-list:before {
+      content: '';
+      position: absolute;
+      top: 17px;
+      bottom: 18px;
+      left: 15px;
+      width: 2px;
+      background: #171c20
+    }
+
+    .entry-list li {
+      position: relative;
+      padding: 0 0 42px 55px;
+      font: 500 clamp(1.35rem, 2.5vw, 2.6rem) 'Space Grotesk', sans-serif;
+      letter-spacing: -.045em
+    }
+
+    .entry-list li:last-child {
+      padding-bottom: 0
+    }
+
+    .entry-list li:before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: .33em;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #dcff55;
+      border: 2px solid #171c20
+    }
+
+    .entry-list li:nth-child(3):before,
+    .entry-list li:nth-child(6):before {
+      background: #171c20
+    }
+
+    .journey-aside {
+      align-self: end;
+      border-top: 2px solid #171c20;
+      padding-top: 28px
+    }
+
+    .journey-aside strong {
+      font: 600 clamp(2rem, 3.7vw, 4.2rem)/1.1 'Space Grotesk', sans-serif;
+      letter-spacing: -.055em;
+      display: block
+    }
+
+    .journey-aside p {
+      font-size: 1.1rem;
+      max-width: 430px;
+      margin: 24px 0 0
+    }
+
+    .modes {
+      background: #f3f3ee
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid #171c20
+    }
+
+    .mode {
+      padding: 34px 6vw 50px 0;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column
+    }
+
+    .mode+.mode {
+      border-left: 1px solid #171c20;
+      padding-left: 6vw;
+      padding-right: 0
+    }
+
+    .mode-num {
+      font-size: .9rem;
+      font-weight: 700
+    }
+
+    .mode h3 {
+      font-size: clamp(3.5rem, 6vw, 7rem);
+      line-height: 1;
+      margin: 55px 0 22px
+    }
+
+    .mode .lead {
+      font-size: clamp(1.35rem, 2vw, 2rem);
+      line-height: 1.25;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -.035em;
+      max-width: 510px
+    }
+
+    .mode p:last-child {
+      max-width: 470px;
+      margin: auto 0 0;
+      font-size: 1.08rem
+    }
+
+    .mode:first-child h3:after {
+      content: '↗';
+      color: #dcff55;
+      font-size: .5em;
+      vertical-align: top;
+      margin-left: .15em
+    }
+
+    .services {
+      background: #171c20;
+      color: #f3f3ee
+    }
+
+    .services .section-head {
+      border-bottom: 1px solid #f3f3ee;
+      padding-bottom: 60px
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .service {
+      border-top: 1px solid #f3f3ee;
+      padding: 20px 10px 28px 0;
+      min-height: 145px
+    }
+
+    .service span {
+      color: #dcff55;
+      font-size: .8rem
+    }
+
+    .service h3 {
+      font-size: clamp(1.4rem, 2.1vw, 2.3rem);
+      line-height: 1.12;
+      margin: 26px 0 0;
+      font-weight: 500
+    }
+
+    .work {
+      background: #f3f3ee
+    }
+
+    .work-note {
+      max-width: 550px;
+      color: #171c20
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px 24px
+    }
+
+    .work-card {
+      text-decoration: none;
+      display: block
+    }
+
+    .work-card:nth-child(even) {
+      transform: translateY(85px)
+    }
+
+    .work-visual {
+      height: clamp(270px, 34vw, 500px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      padding: 35px;
+      background: #171c20
+    }
+
+    .work-card:nth-child(2) .work-visual {
+      background: #f3f3ee;
+      color: #171c20
+    }
+
+    .work-card:nth-child(3) .work-visual {
+      background: #171c20
+    }
+
+    .work-card:nth-child(4) .work-visual {
+      background: #f3f3ee
+    }
+
+    .work-visual:before {
+      content: '';
+      position: absolute;
+      width: 68%;
+      aspect-ratio: 1;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      transform: translate(50%, 30%);
+      opacity: .35
+    }
+
+    .work-visual span {
+      position: relative;
+      font: 600 clamp(2.7rem, 5vw, 5.5rem)/.95 'Space Grotesk', sans-serif;
+      letter-spacing: -.075em;
+      max-width: 85%;
+      text-align: center
+    }
+
+    .work-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #171c20;
+      margin-top: 15px;
+      font-size: .9rem
+    }
+
+    .work-label strong {
+      font-size: 1.2rem;
+      font-weight: 600
+    }
+
+    .work-card:hover .work-visual span {
+      transform: scale(1.035);
+      transition: transform .25s
+    }
+
+    .work-bottom {
+      margin-top: 150px;
+      font-size: .95rem
+    }
+
+    .working {
+      background: #f3f3ee
+    }
+
+    .working-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px
+    }
+
+    .working-card {
+      border-top: 2px solid #171c20;
+      padding: 28px 0 0;
+      min-height: 200px
+    }
+
+    .working-card h3 {
+      font-size: clamp(2rem, 3vw, 3.6rem);
+      margin-bottom: 20px
+    }
+
+    .working-card p {
+      max-width: 460px;
+      font-size: 1.1rem
+    }
+
+    .contact {
+      background: #dcff55;
+      padding: 130px 0 60px
+    }
+
+    .contact h2 {
+      font-size: clamp(4.2rem, 10vw, 11rem);
+      line-height: .92;
+      max-width: 1200px;
+      margin: 55px 0 75px
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap
+    }
+
+    .contact-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: 1px solid #171c20;
+      border-radius: 50px;
+      padding: 18px 25px
+    }
+
+    .contact-actions a:first-child {
+      background: #171c20;
+      color: #dcff55
+    }
+
+    .contact-actions a:hover {
+      transform: translateY(-3px)
+    }
+
+    footer {
+      margin-top: 140px;
+      border-top: 1px solid #171c20;
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      font-size: .9rem
+    }
+
+    .muted {
+      opacity: .72
+    }
+
+    @media(max-width:800px) {
+      .wrap {
+        width: min(100% - 36px, 1440px)
+      }
+
+      .nav {
+        height: 72px
+      }
+
+      .hero {
+        min-height: 90svh
+      }
+
+      .hero-inner {
+        padding: 150px 0 48px
+      }
+
+      .hero h1 {
+        font-size: clamp(3.4rem, 12.5vw, 6.5rem);
+        margin: 45px 0
+      }
+
+      .hero-bottom,
+      .journey-grid,
+      .mode-grid,
+      .working-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-bottom .pill {
+        justify-self: start
+      }
+
+      .section {
+        padding: 85px 0
+      }
+
+      .section-head {
+        display: block;
+        margin-bottom: 50px
+      }
+
+      .section-head p {
+        margin-top: 26px
+      }
+
+      .journey .section-head {
+        margin-bottom: 55px
+      }
+
+      .journey-grid {
+        gap: 80px
+      }
+
+      .mode {
+        min-height: 0;
+        padding: 25px 0 55px
+      }
+
+      .mode+.mode {
+        border-left: 0;
+        border-top: 1px solid #171c20;
+        padding: 25px 0 0
+      }
+
+      .mode h3 {
+        margin: 35px 0 20px
+      }
+
+      .mode p:last-child {
+        margin: 45px 0 0
+      }
+
+      .services .section-head {
+        padding-bottom: 40px
+      }
+
+      .service-list {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .work-grid {
+        gap: 45px 18px
+      }
+
+      .work-card:nth-child(even) {
+        transform: none
+      }
+
+      .work-visual {
+        height: 300px
+      }
+
+      .work-bottom {
+        margin-top: 55px
+      }
+
+      .contact {
+        padding: 90px 0 35px
+      }
+
+      .contact h2 {
+        margin: 45px 0 55px
+      }
+
+      footer {
+        margin-top: 100px
+      }
+    }
+
+    @media(max-width:560px) {
+      .eyebrow {
+        font-size: .75rem
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 13vw, 5rem)
+      }
+
+      .hero-bottom p {
+        font-size: 1.08rem
+      }
+
+      .section-head h2 {
+        font-size: clamp(3rem, 11vw, 4.5rem)
+      }
+
+      .service-list,
+      .work-grid {
+        grid-template-columns: 1fr
+      }
+
+      .service {
+        min-height: 105px
+      }
+
+      .service h3 {
+        margin-top: 16px
+      }
+
+      .work-visual {
+        height: 350px
+      }
+
+      .work-card:nth-child(even) {
+        transform: none
+      }
+
+      .work-bottom {
+        margin-top: 55px
+      }
+
+      .contact h2 {
+        font-size: clamp(3.6rem, 13vw, 6rem)
+      }
+
+      .contact-actions {
+        flex-direction: column;
+        align-items: stretch
+      }
+
+      .contact-actions a {
+        justify-content: space-between
+      }
+
+      footer {
+        flex-direction: column;
+        margin-top: 90px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      :root {
+        scroll-behavior: auto
+      }
+
+      * {
+        transition: none !important
+      }
+    }
   </style>
   <style>
-    .entry-list li{padding:0 0 12px 55px}
-    .entry-list li:last-child{padding-bottom:0}
-    .entry-list li:before{top:calc(50% - 4px)}
-    .entry-list button{width:100%;border:0;background:transparent;text-align:left;color:inherit;cursor:pointer;padding:12px 14px 14px 0;font:inherit;letter-spacing:inherit;line-height:1.12;opacity:.58;transition:opacity .2s,transform .2s}
-    .entry-list button:hover,.entry-list button:focus-visible,.entry-list button[aria-pressed="true"]{opacity:1;transform:translateX(5px)}
-    .entry-list button:focus-visible{outline:2px solid #171c20;outline-offset:4px}
-    .entry-list li:has(button[aria-pressed="true"]):before{background:#171c20;box-shadow:0 0 0 5px #dcff55,0 0 0 7px #171c20}
-    .entry-list li:nth-child(3):before,.entry-list li:nth-child(6):before{background:#dcff55}
-    .journey-aside{align-self:start;position:sticky;top:40px;min-height:350px}
-    .journey-aside strong{margin-top:34px}
-    .journey-aside .solution-label{display:block;margin-top:32px;font-weight:700;font-size:.9rem}
-    .journey-aside .solution-mode{display:inline-block;margin-top:25px;border:1px solid #171c20;border-radius:100px;padding:9px 15px;font-size:.85rem;font-weight:700}
-    .journey-aside a{display:inline-block;margin-top:25px;font-weight:700;text-underline-offset:5px}
-    @media(max-width:800px){.journey-aside{position:static;min-height:0}.entry-list li{padding-left:45px}.entry-list button{font-size:clamp(1.25rem,5vw,2rem)}}
-    .people{background:#f3f3ee}
-    .people .section-head p{max-width:380px}
-    .people-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-    .person{min-width:0}
-    .person-photo{height:clamp(165px,21vw,315px);background:#f3f3ee;position:relative;overflow:hidden}
-    .person:nth-child(2) .person-photo{background:#f3f3ee}
-    .person-photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
-    .person:nth-child(2) .person-photo img{object-position:center bottom}
-    .person-info{border-top:2px solid #171c20;margin-top:16px;padding-top:22px}
-    .person-info h3{font-size:clamp(2.3rem,4vw,4.7rem);line-height:1.02;margin:17px 0 8px}
-    .person-role{font-size:1rem;font-weight:700;margin:0 0 23px}
-    .person-info p:not(.person-role){max-width:580px;font-size:1.08rem}
-    .person-info a{display:inline-block;margin-top:7px;text-underline-offset:5px;font-weight:700}
-    @media(max-width:700px){.people-grid{grid-template-columns:1fr;gap:65px}.person-photo{height:clamp(170px,47.5vw,295px)}}
-    .journey{background:#dcff55;border-bottom:1px solid #171c20}
-    .journey .entry-list li:before,.journey .entry-list li:nth-child(3):before,.journey .entry-list li:nth-child(6):before{background:#dcff55}
-    .journey .entry-list li:has(button[aria-pressed="true"]):before{background:#171c20;box-shadow:0 0 0 5px #dcff55,0 0 0 7px #171c20}
-    .modes,.people{border-bottom:1px solid #171c20}
-    .work{background:#dcff55}
-    .work-visual,.work-card:nth-child(3) .work-visual{background:#171c20;color:#f3f3ee}
-    .work-card:nth-child(2) .work-visual,.work-card:nth-child(4) .work-visual{background:#f3f3ee;color:#171c20;border:1px solid #171c20}
-    .work-visual:before{border-color:#dcff55;opacity:1}
-    .work-card:nth-child(2) .work-visual:before,.work-card:nth-child(4) .work-visual:before{border-color:#171c20}
-    .hero:after{display:none}
-    .hero-art{position:absolute;z-index:0;width:90vw;max-width:1500px;right:-12vw;top:70px;height:auto;opacity:.52;pointer-events:none}
-    .hero-inner{z-index:1}
-    @media(max-width:800px){.hero-art{width:125vw;right:-38vw;top:64px;opacity:.38}}
-    @media(max-width:560px){.hero-art{width:160vw;right:-61vw;top:65px;opacity:.24}}
-    .inquiry{background:#f3f3ee;border-top:1px solid #171c20}
-    .inquiry .section-head{margin-bottom:45px}
-    .inquiry .section-head p{max-width:470px}
-    .inquiry-frame{display:block;width:100%;height:800px;border:0;background:#f3f3ee}
-    @media(max-width:800px){.inquiry-frame{height:1050px}}
+    .entry-list li {
+      padding: 0 0 12px 55px
+    }
+
+    .entry-list li:last-child {
+      padding-bottom: 0
+    }
+
+    .entry-list li:before {
+      top: calc(50% - 4px)
+    }
+
+    .entry-list button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      color: inherit;
+      cursor: pointer;
+      padding: 12px 14px 14px 0;
+      font: inherit;
+      letter-spacing: inherit;
+      line-height: 1.12;
+      opacity: .58;
+      transition: opacity .2s, transform .2s
+    }
+
+    .entry-list button:hover,
+    .entry-list button:focus-visible,
+    .entry-list button[aria-pressed="true"] {
+      opacity: 1;
+      transform: translateX(5px)
+    }
+
+    .entry-list button:focus-visible {
+      outline: 2px solid #171c20;
+      outline-offset: 4px
+    }
+
+    .entry-list li:has(button[aria-pressed="true"]):before {
+      background: #171c20;
+      box-shadow: 0 0 0 5px #dcff55, 0 0 0 7px #171c20
+    }
+
+    .entry-list li:nth-child(3):before,
+    .entry-list li:nth-child(6):before {
+      background: #dcff55
+    }
+
+    .journey-aside {
+      align-self: start;
+      position: sticky;
+      top: 40px;
+      min-height: 350px
+    }
+
+    .journey-aside strong {
+      margin-top: 34px
+    }
+
+    .journey-aside .solution-label {
+      display: block;
+      margin-top: 32px;
+      font-weight: 700;
+      font-size: .9rem
+    }
+
+    .journey-aside .solution-mode {
+      display: inline-block;
+      margin-top: 25px;
+      border: 1px solid #171c20;
+      border-radius: 100px;
+      padding: 9px 15px;
+      font-size: .85rem;
+      font-weight: 700
+    }
+
+    .journey-aside a {
+      display: inline-block;
+      margin-top: 25px;
+      font-weight: 700;
+      text-underline-offset: 5px
+    }
+
+    @media(max-width:800px) {
+      .journey-aside {
+        position: static;
+        min-height: 0
+      }
+
+      .entry-list li {
+        padding-left: 45px
+      }
+
+      .entry-list button {
+        font-size: clamp(1.25rem, 5vw, 2rem)
+      }
+    }
+
+    .people {
+      background: #f3f3ee
+    }
+
+    .people .section-head p {
+      max-width: 380px
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px
+    }
+
+    .person {
+      min-width: 0
+    }
+
+    .person-photo {
+      height: clamp(165px, 21vw, 315px);
+      background: #f3f3ee;
+      position: relative;
+      overflow: hidden
+    }
+
+    .person:nth-child(2) .person-photo {
+      background: #f3f3ee
+    }
+
+    .person-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom
+    }
+
+    .person:nth-child(2) .person-photo img {
+      object-position: center bottom
+    }
+
+    .person-info {
+      border-top: 2px solid #171c20;
+      margin-top: 16px;
+      padding-top: 22px
+    }
+
+    .person-info h3 {
+      font-size: clamp(2.3rem, 4vw, 4.7rem);
+      line-height: 1.02;
+      margin: 17px 0 8px
+    }
+
+    .person-role {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 23px
+    }
+
+    .person-info p:not(.person-role) {
+      max-width: 580px;
+      font-size: 1.08rem
+    }
+
+    .person-info a {
+      display: inline-block;
+      margin-top: 7px;
+      text-underline-offset: 5px;
+      font-weight: 700
+    }
+
+    @media(max-width:700px) {
+      .people-grid {
+        grid-template-columns: 1fr;
+        gap: 65px
+      }
+
+      .person-photo {
+        height: clamp(170px, 47.5vw, 295px)
+      }
+    }
+
+    .journey {
+      background: #dcff55;
+      border-bottom: 1px solid #171c20
+    }
+
+    .journey .entry-list li:before,
+    .journey .entry-list li:nth-child(3):before,
+    .journey .entry-list li:nth-child(6):before {
+      background: #dcff55
+    }
+
+    .journey .entry-list li:has(button[aria-pressed="true"]):before {
+      background: #171c20;
+      box-shadow: 0 0 0 5px #dcff55, 0 0 0 7px #171c20
+    }
+
+    .modes,
+    .people {
+      border-bottom: 1px solid #171c20
+    }
+
+    .work {
+      background: #dcff55
+    }
+
+    .work-visual,
+    .work-card:nth-child(3) .work-visual {
+      background: #171c20;
+      color: #f3f3ee
+    }
+
+    .work-card:nth-child(2) .work-visual,
+    .work-card:nth-child(4) .work-visual {
+      background: #f3f3ee;
+      color: #171c20;
+      border: 1px solid #171c20
+    }
+
+    .work-visual:before {
+      border-color: #dcff55;
+      opacity: 1
+    }
+
+    .work-card:nth-child(2) .work-visual:before,
+    .work-card:nth-child(4) .work-visual:before {
+      border-color: #171c20
+    }
+
+    .hero:after {
+      display: none
+    }
+
+    .hero-art {
+      position: absolute;
+      z-index: 0;
+      width: 90vw;
+      max-width: 1500px;
+      right: -12vw;
+      top: 70px;
+      height: auto;
+      opacity: .52;
+      pointer-events: none
+    }
+
+    .hero-inner {
+      z-index: 1
+    }
+
+    @media(max-width:800px) {
+      .hero-art {
+        width: 125vw;
+        right: -38vw;
+        top: 64px;
+        opacity: .38
+      }
+    }
+
+    @media(max-width:560px) {
+      .hero-art {
+        width: 160vw;
+        right: -61vw;
+        top: 65px;
+        opacity: .24
+      }
+    }
+
+    .inquiry {
+      background: #f3f3ee;
+      border-top: 1px solid #171c20
+    }
+
+    .inquiry .section-head {
+      margin-bottom: 45px
+    }
+
+    .inquiry .section-head p {
+      max-width: 470px
+    }
+
+    .inquiry-frame {
+      display: block;
+      width: 100%;
+      height: 800px;
+      border: 0;
+      background: #f3f3ee
+    }
+
+    @media(max-width:800px) {
+      .inquiry-frame {
+        height: 1050px
+      }
+    }
   </style>
 </head>
+
 <body>
-<header><nav class="nav wrap" aria-label="Navegación principal"><a class="brand" href="#inicio">Pablo Fonteñez<span> /</span> Creativo</a><a href="#contacto">Hablemos ↗</a></nav></header>
-<main>
-<section class="hero" id="inicio"><img class="hero-art" src="hero-abstracto.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async"><div class="wrap hero-inner"><div class="eyebrow">Diseño + comunicación · Buenos Aires</div><h1>Decinos hasta dónde llegaste.<br><em>Nosotros lo continuamos.</em></h1><div class="hero-bottom"><p>Si tenés una idea, un brief o una campaña en marcha, nos sumamos en el punto en el que estés para convertir lo que necesitás comunicar en algo concreto.</p><a class="pill" href="#punto">Encontrá tu punto de partida <span aria-hidden="true">↓</span></a></div></div></section>
-<section class="section journey" id="punto"><div class="wrap"><div class="section-head"><h2>¿En qué punto<br>estás?</h2><p>Elegí el que más se parece a tu situación y mirá cómo podemos avanzar.</p></div><div class="journey-grid"><ol class="entry-list" aria-label="Puntos de partida"><li><button type="button" aria-pressed="true" data-point="idea">Tengo una idea.</button></li><li><button type="button" aria-pressed="false" data-point="inicio">No sé por dónde empezar.</button></li><li><button type="button" aria-pressed="false" data-point="brief">Ya tengo un brief.</button></li><li><button type="button" aria-pressed="false" data-point="contenido">Tengo el contenido.</button></li><li><button type="button" aria-pressed="false" data-point="diseno">Necesito solamente diseño.</button></li><li><button type="button" aria-pressed="false" data-point="campana">Hay una campaña en marcha.</button></li><li><button type="button" aria-pressed="false" data-point="trabado">Me quedé trabado.</button></li></ol><div class="journey-aside" aria-live="polite" aria-atomic="true"><span class="eyebrow">Podemos seguir desde ahí</span><span class="solution-label">SI TENÉS UNA IDEA</span><strong id="solution-title">La llevamos a una forma concreta.</strong><p id="solution-text">Conversamos sobre el objetivo, ordenamos lo que querés contar y definimos las piezas necesarias para empezar a comunicarlo.</p><span class="solution-mode" id="solution-mode">Diseño multimedia o dupla creativa</span><br><a href="#contacto">Contanos en qué punto estás ↗</a></div></div></div></section>
-<section class="section modes" id="modalidades"><div class="wrap"><div class="section-head"><h2>Dos formas<br>de trabajar.</h2><p>Elegí el acompañamiento que necesitás hoy. Si el proyecto crece, podemos ampliar el equipo.</p></div><div class="mode-grid"><article class="mode"><span class="mode-num">01 / Servicio principal</span><h3>Diseño<br>multimedia</h3><p class="lead">¿Ya sabés qué comunicar? Yo me encargo de darle forma.</p><p>Para empresas con una idea o contenido definido que necesitan diseño con criterio, continuidad y buena ejecución visual.</p></article><article class="mode"><span class="mode-num">02 / Más pensamiento + ejecución</span><h3>Dupla<br>creativa</h3><p class="lead">¿Necesitás también pensar qué comunicar? Lo pensamos y lo hacemos juntos.</p><p>Diseñador y periodista/comunicador, con experiencia trabajando en equipo, para desarrollar la idea, las palabras y las piezas.</p></article></div></div></section>
-<section class="section people" id="quienes-somos"><div class="wrap"><div class="section-head"><h2>Las personas<br>detrás de las ideas.</h2><p>Podés trabajar con Pablo para resolver el diseño o sumarnos a los dos cuando el proyecto también necesita pensar el mensaje.</p></div><div class="people-grid"><article class="person"><div class="person-photo"><img src="pablo.webp" alt="Retrato de Pablo Fonteñez" width="801" height="1200" loading="lazy" decoding="async"></div><div class="person-info"><span class="eyebrow">Diseño multimedia</span><h3>Pablo Ezequiel Fonteñez</h3><p class="person-role">Diseñador gráfico y digital</p><p>Trabajó en comunicación visual para marcas: identidad, campañas, contenido para redes, video y experiencias web. Combino diseño, herramientas digitales y criterio visual para transformar ideas en piezas concretas.</p><a href="https://www.linkedin.com/in/pfontenez/" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de Pablo Fonteñez en LinkedIn">Conocé su recorrido ↗</a></div></article><article class="person"><div class="person-photo"><img src="nicolas.webp" alt="Retrato de Nicolás Morales Bissio" width="1000" height="1048" loading="lazy" decoding="async"></div><div class="person-info"><span class="eyebrow">Comunicación y contenido</span><h3>Nicolás Morales Bissio</h3><p class="person-role">Periodista, copywriter y social media manager</p><p>Aporta la mirada editorial de la dupla: ayuda a encontrar qué decir, cómo decirlo y a desarrollar textos y contenidos para que cada idea tenga un mensaje claro.</p><a href="https://www.linkedin.com/in/nicol%C3%A1s-morales-bissio-413909248/" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de Nicolás Morales Bissio en LinkedIn">Conocé su recorrido ↗</a></div></article></div></div></section>
-<section class="section services" id="servicios"><div class="wrap"><div class="section-head"><h2>Qué podemos<br>resolver.</h2><p>Un proyecto puntual o una necesidad de comunicación que vuelve todos los meses.</p></div><div class="service-list"><div class="service"><span>01</span><h3>Redes sociales y campañas digitales</h3></div><div class="service"><span>02</span><h3>Creatividades para Meta Ads y Google Ads</h3></div><div class="service"><span>03</span><h3>Branding e identidad visual</h3></div><div class="service"><span>04</span><h3>Presentaciones comerciales</h3></div><div class="service"><span>05</span><h3>Banners, piezas web y landing pages</h3></div><div class="service"><span>06</span><h3>Video, Reels y motion graphics</h3></div><div class="service"><span>07</span><h3>Adaptaciones y producción visual con IA</h3></div><div class="service"><span>08 / Dupla</span><h3>Conceptos, contenidos, copy y guiones</h3></div><div class="service"><span>09 / Dupla</span><h3>Campañas y gestión en Meta</h3></div></div></div></section>
-<section class="section work" id="trabajos">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Algunos trabajos.</h2>
-      <p class="work-note">
-        Distintos formatos, marcas y desafíos. Una selección breve para ver
-        el tipo de soluciones que podemos crear.
-      </p>
-    </div>
+  <header>
+    <nav class="nav wrap" aria-label="Navegación principal"><a class="brand" href="#inicio">Soluciones digitales<span>
+          /</span> Dupla Creativa</a><a href="#contacto">Hablemos ↗</a></nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio"><img class="hero-art" src="hero-abstracto.webp" alt="" width="1672" height="941"
+        fetchpriority="high" decoding="async">
+      <div class="wrap hero-inner">
+        <div class="eyebrow">Diseño + comunicación · Buenos Aires</div>
+        <h1>Decinos hasta dónde llegaste.<br><em>Nosotros lo continuamos.</em></h1>
+        <div class="hero-bottom">
+          <p>Si tenés una idea, un brief o una campaña en marcha, nos sumamos en el punto en el que estés para convertir
+            lo que necesitás comunicar en algo concreto.</p><a class="pill" href="#punto">Encontrá tu punto de partida
+            <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="section journey" id="punto">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>¿En qué punto<br>está tu comunicación?</h2>
+          <p>Elegí el que más se parece a tu situación y mirá cómo podemos avanzar.</p>
+        </div>
+        <div class="journey-grid">
+          <ol class="entry-list" aria-label="Puntos de partida">
+            <li><button type="button" aria-pressed="true" data-point="idea">Tengo una idea.</button></li>
+            <li><button type="button" aria-pressed="false" data-point="inicio">No sé por dónde empezar.</button></li>
+            <li><button type="button" aria-pressed="false" data-point="brief">Ya tengo un brief.</button></li>
+            <li><button type="button" aria-pressed="false" data-point="contenido">Tengo el contenido.</button></li>
+            <li><button type="button" aria-pressed="false" data-point="diseno">Necesito solamente diseño.</button></li>
+            <li><button type="button" aria-pressed="false" data-point="campana">Hay una campaña en marcha.</button></li>
+            <li><button type="button" aria-pressed="false" data-point="trabado">Me quedé trabado.</button></li>
+          </ol>
+          <div class="journey-aside" aria-live="polite" aria-atomic="true"><span class="eyebrow">Podemos seguir desde
+              ahí</span><span class="solution-label">SI TENÉS UNA IDEA</span><strong id="solution-title">La llevamos a
+              una forma concreta.</strong>
+            <p id="solution-text">Conversamos sobre el objetivo, ordenamos lo que querés contar y definimos las piezas
+              necesarias para empezar a comunicarlo.</p><span class="solution-mode" id="solution-mode">Diseño multimedia
+              o dupla creativa</span><br><a href="#contacto">Contanos en qué punto estás ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section modes" id="modalidades">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Dos formas<br>de trabajar.</h2>
+          <p>Elegí el acompañamiento que necesitás hoy. Si el proyecto crece, podemos ampliar el equipo.</p>
+        </div>
+        <div class="mode-grid">
+          <article class="mode"><span class="mode-num">01 / Si ya tenés el contenido</span>
+            <h3>Diseño<br>multimedia</h3>
+            <p class="lead">¿Ya sabés qué comunicar? Nos ocupamos de darle forma visual.</p>
+            <p>Para empresas con una idea o contenido definido que necesitan diseño con criterio, continuidad y buena
+              ejecución visual.</p>
+          </article>
+          <article class="mode"><span class="mode-num">02 / Más pensamiento + ejecución</span>
+            <h3>Dupla<br>creativa</h3>
+            <p class="lead">¿Necesitás también pensar qué comunicar? Lo pensamos y lo hacemos juntos.</p>
+            <p>Pensamos el mensaje, desarrollamos las ideas y creamos los textos y las piezas para llevarlos a cada canal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section people" id="quienes-somos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Las personas<br>detrás de las ideas.</h2>
+          <p>Somos Pablo y Nicolás. Combinamos diseño, comunicación y contenido para ayudar a las marcas a encontrar qué
+            quieren decir y darle una forma concreta. Según lo que necesite cada proyecto, trabajamos desde el diseño o
+            sumamos también la mirada editorial.</p>
+        </div>
+        <div class="people-grid">
+          <article class="person">
+            <div class="person-photo"><img src="pablo.webp" alt="Retrato de Pablo Fonteñez" width="801" height="1200"
+                loading="lazy" decoding="async"></div>
+            <div class="person-info"><span class="eyebrow">Diseño multimedia</span>
+              <h3>Pablo Ezequiel Fonteñez</h3>
+              <p class="person-role">Diseño y dirección de arte digital</p>
+              <p>Desde el diseño y la dirección de arte, traduzco ideas en piezas visuales claras y coherentes. 
+                Trabajo en identidad, campañas, contenido digital y piezas web, de principio a fin.</p><a href="https://www.linkedin.com/in/pfontenez/" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver perfil de Pablo Fonteñez en LinkedIn">Conocé su recorrido
+                ↗</a>
+            </div>
+          </article>
+          <article class="person">
+            <div class="person-photo"><img src="nicolas.webp" alt="Retrato de Nicolás Morales Bissio" width="1000"
+                height="1048" loading="lazy" decoding="async"></div>
+            <div class="person-info"><span class="eyebrow">Comunicación y contenido</span>
+              <h3>Nicolás Morales Bissio</h3>
+              <p class="person-role">Periodista, copywriter y social media manager</p>
+              <p>Desde el contenido, ayudo a definir qué decir y cómo decirlo. Desarrollo mensajes, textos y 
+                contenidos para cada canal.</p><a
+                href="https://www.linkedin.com/in/nicol%C3%A1s-morales-bissio-413909248/" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver perfil de Nicolás Morales Bissio en LinkedIn">Conocé su
+                recorrido ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section services" id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Qué podemos<br>resolver.</h2>
+          <p>Un proyecto puntual o una necesidad de comunicación que vuelve todos los meses.</p>
+        </div>
+        <div class="service-list">
+          <div class="service"><span>01</span>
+            <h3>Redes sociales y campañas digitales</h3>
+          </div>
+          <div class="service"><span>02</span>
+            <h3>Creatividades para Meta Ads y Google Ads</h3>
+          </div>
+          <div class="service"><span>03</span>
+            <h3>Branding e identidad visual</h3>
+          </div>
+          <div class="service"><span>04</span>
+            <h3>Presentaciones comerciales</h3>
+          </div>
+          <div class="service"><span>05</span>
+            <h3>Banners, piezas web y landing pages</h3>
+          </div>
+          <div class="service"><span>06</span>
+            <h3>Video, Reels y motion graphics</h3>
+          </div>
+          <div class="service"><span>07</span>
+            <h3>Adaptaciones y producción visual con IA</h3>
+          </div>
+          <div class="service"><span>08 / Dupla</span>
+            <h3>Conceptos, contenidos, copy y guiones</h3>
+          </div>
+          <div class="service"><span>09 / Dupla</span>
+            <h3>Campañas y gestión en Meta</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section work" id="trabajos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Algunos trabajos.</h2>
+          <p class="work-note">
+            Distintos formatos, marcas y desafíos. Una selección breve para ver
+            el tipo de soluciones que podemos crear.
+          </p>
+        </div>
 
-    <div class="work-grid">
-      <figure class="work-card">
-        <a class="work-visual" href="Mark-sports.png" target="_blank" rel="noopener" aria-label="Ver imagen completa de Mark Sports">
-          <img src="Mark-sports.png" alt="Trabajo de diseño para Mark Sports">
-        </a>
-        <figcaption class="work-label"><strong>Mark Sports</strong></figcaption>
-      </figure>
+        <div class="work-grid">
+          <figure class="work-card">
+            <a class="work-visual" href="Mark-sports.png" target="_blank" rel="noopener"
+              aria-label="Ver imagen completa de Mark Sports">
+              <img src="Mark-sports.png" alt="Trabajo de diseño para Mark Sports">
+            </a>
+            <figcaption class="work-label"><strong>Mark Sports</strong></figcaption>
+          </figure>
 
-      <figure class="work-card">
-        <a class="work-visual" href="Oh-pic.png" target="_blank" rel="noopener" aria-label="Ver imagen completa de Oh pic!">
-          <img src="Oh-pic.png" alt="Trabajo de diseño para Oh pic!">
-        </a>
-        <figcaption class="work-label"><strong>Oh pic!</strong></figcaption>
-      </figure>
+          <figure class="work-card">
+            <a class="work-visual" href="Oh-pic.png" target="_blank" rel="noopener"
+              aria-label="Ver imagen completa de Oh pic!">
+              <img src="Oh-pic.png" alt="Trabajo de diseño para Oh pic!">
+            </a>
+            <figcaption class="work-label"><strong>Oh pic!</strong></figcaption>
+          </figure>
 
-      <figure class="work-card">
-        <a class="work-visual" href="Sanitarios-rodriguez.png" target="_blank" rel="noopener" aria-label="Ver imagen completa de Sanitarios Rodríguez">
-          <img src="Sanitarios-rodriguez.png" alt="Trabajo de diseño para Sanitarios Rodríguez">
-        </a>
-        <figcaption class="work-label"><strong>Sanitarios Rodríguez</strong></figcaption>
-      </figure>
+          <figure class="work-card">
+            <a class="work-visual" href="Sanitarios-rodriguez.png" target="_blank" rel="noopener"
+              aria-label="Ver imagen completa de Sanitarios Rodríguez">
+              <img src="Sanitarios-rodriguez.png" alt="Trabajo de diseño para Sanitarios Rodríguez">
+            </a>
+            <figcaption class="work-label"><strong>Sanitarios Rodríguez</strong></figcaption>
+          </figure>
 
-      <figure class="work-card">
-        <a class="work-visual" href="Gaming-city.png" target="_blank" rel="noopener" aria-label="Ver imagen completa de Gaming City">
-          <img src="Gaming-city.png" alt="Trabajo de diseño para Gaming City">
-        </a>
-        <figcaption class="work-label"><strong>Gaming City</strong></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-<section class="section working"><div class="wrap"><div class="section-head"><h2>Nos sumamos<br>como te sirva.</h2></div><div class="working-grid"><div class="working-card"><span class="eyebrow">01 / Cuando lo necesitás</span><h3>Proyecto puntual</h3><p>Una identidad, una campaña, una presentación o una serie de piezas con un objetivo y una entrega definidos.</p></div><div class="working-card"><span class="eyebrow">02 / Con continuidad</span><h3>Colaboración recurrente</h3><p>Diseño y contenido para acompañar la comunicación de tu empresa mes a mes, con un ritmo de trabajo acordado.</p></div></div></div></section>
-<section class="section inquiry" id="formulario"><div class="wrap"><div class="section-head"><h2>Contanos tu<br>proyecto.</h2><p>Unos datos breves para entender dónde estás y poder responderte con una propuesta. Vas a recibir una copia de tu consulta por correo.</p></div><iframe class="inquiry-frame" id="inquiry-frame" title="Formulario para contarnos tu proyecto" data-src="https://script.google.com/macros/s/AKfycbwye3BlEEcR1O8dgJgVVdqVq1z8mDRXpIM1Ys9uKAR_KiIqpHNspudDD7ePS23ZLiYy/exec" loading="lazy"></iframe></div></section>
-<section class="contact" id="contacto"><div class="wrap"><div class="eyebrow">Empecemos por donde estás</div><h2>¿Hasta dónde llegaste?</h2><div class="contact-actions"><a href="https://wa.me/541134145166?text=Hola%20Pablo%2C%20quiero%20contarte%20sobre%20un%20proyecto." target="_blank" rel="noopener">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a><a href="mailto:pabloezequielfontenez@gmail.com?subject=Consulta%20por%20servicios%20creativos">Escribime por email <span aria-hidden="true">↗</span></a></div><footer><span>Pablo Fonteñez · Diseño y comunicación</span><span class="muted">Buenos Aires, Argentina · © 2026</span></footer></div></section>
-</main>
-<script>
-  const inquiryFrame = document.querySelector('#inquiry-frame');
-  const inquiryUrl = inquiryFrame.dataset.src;
-  if (inquiryUrl.startsWith('https://script.google.com/macros/s/')) inquiryFrame.src = inquiryUrl;
-  window.addEventListener('message', event => {
-    if (event.source !== inquiryFrame.contentWindow ||
-        !['https://script.google.com','https://script.googleusercontent.com'].includes(event.origin) ||
+          <figure class="work-card">
+            <a class="work-visual" href="Gaming-city.png" target="_blank" rel="noopener"
+              aria-label="Ver imagen completa de Gaming City">
+              <img src="Gaming-city.png" alt="Trabajo de diseño para Gaming City">
+            </a>
+            <figcaption class="work-label"><strong>Gaming City</strong></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="section working">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Nos sumamos<br>como te sirva.</h2>
+        </div>
+        <div class="working-grid">
+          <div class="working-card"><span class="eyebrow">01 / Cuando lo necesitás</span>
+            <h3>Proyecto puntual</h3>
+            <p>Una identidad, una campaña, una presentación o una serie de piezas con un objetivo y una entrega
+              definidos.</p>
+          </div>
+          <div class="working-card"><span class="eyebrow">02 / Con continuidad</span>
+            <h3>Colaboración recurrente</h3>
+            <p>Diseño y contenido para acompañar la comunicación de tu empresa mes a mes, con un ritmo de trabajo
+              acordado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section inquiry" id="formulario">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Contanos tu<br>proyecto.</h2>
+          <p>Unos datos breves para entender dónde estás y poder responderte con una propuesta. Vas a recibir una copia
+            de tu consulta por correo.</p>
+        </div><iframe class="inquiry-frame" id="inquiry-frame" title="Formulario para contarnos tu proyecto"
+          data-src="https://script.google.com/macros/s/AKfycbwye3BlEEcR1O8dgJgVVdqVq1z8mDRXpIM1Ys9uKAR_KiIqpHNspudDD7ePS23ZLiYy/exec"
+          loading="lazy"></iframe>
+      </div>
+    </section>
+    <section class="contact" id="contacto">
+      <div class="wrap">
+        <div class="eyebrow">Empecemos por donde estás</div>
+        <h2>¿Hasta dónde llegaste?</h2>
+        <div class="contact-actions"><a
+            href="https://wa.me/541134145166?text=Hola%20Pablo%2C%20quiero%20contarte%20sobre%20un%20proyecto."
+            target="_blank" rel="noopener">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a><a
+            href="mailto:pabloezequielfontenez@gmail.com?subject=Consulta%20por%20servicios%20creativos">Escribinos por
+            email <span aria-hidden="true">↗</span></a></div>
+        <footer><span>Pablo Fonteñez · Diseño y comunicación</span><span class="muted">Buenos Aires, Argentina · ©
+            2026</span></footer>
+      </div>
+    </section>
+  </main>
+  <script>
+    const inquiryFrame = document.querySelector('#inquiry-frame');
+    const inquiryUrl = inquiryFrame.dataset.src;
+    if (inquiryUrl.startsWith('https://script.google.com/macros/s/')) inquiryFrame.src = inquiryUrl;
+    window.addEventListener('message', event => {
+      if (event.source !== inquiryFrame.contentWindow ||
+        !['https://script.google.com', 'https://script.googleusercontent.com'].includes(event.origin) ||
         !event.data || event.data.type !== 'pablo-contact-form-height') return;
-    const height = Number(event.data.height);
-    if (Number.isFinite(height)) inquiryFrame.style.height = Math.max(520,Math.min(height+16,1500))+'px';
-  });
-  const solutions = {
-    idea: ['SI TENÉS UNA IDEA','La llevamos a una forma concreta.','Conversamos sobre el objetivo, ordenamos lo que querés contar y definimos las piezas necesarias para empezar a comunicarlo.','Diseño multimedia o dupla creativa'],
-    inicio: ['SI NO SABÉS POR DÓNDE EMPEZAR','Encontramos el primer paso.','La dupla creativa puede ayudarte a definir el mensaje, el enfoque y un plan de contenidos antes de producir las piezas.','Dupla creativa'],
-    brief: ['SI YA TENÉS UN BRIEF','Lo convertimos en piezas.','Tomamos tus objetivos y entregables definidos para desarrollar el diseño, las adaptaciones o el contenido que pide el proyecto.','Diseño multimedia o dupla creativa'],
-    contenido: ['SI YA TENÉS EL CONTENIDO','Le damos forma visual.','Con tus textos, fotos o materiales de base, diseñamos piezas claras y consistentes para los canales donde necesitás comunicar.','Diseño multimedia'],
-    diseno: ['SI NECESITÁS SOLAMENTE DISEÑO','Me ocupo de diseñarlo.','Te sumás con la idea y el contenido; yo resuelvo la propuesta visual, la producción y las adaptaciones acordadas.','Diseño multimedia'],
-    campana: ['SI TU CAMPAÑA YA ESTÁ EN MARCHA','Nos incorporamos al ritmo.','Podemos desarrollar nuevas creatividades, adaptar formatos o producir las piezas que faltan para sostener la campaña.','Diseño multimedia o dupla creativa'],
-    trabado: ['SI TE QUEDASTE TRABADO','Destrabamos lo que sigue.','Revisamos qué está frenando el avance y proponemos una salida concreta: ajustar la idea, el mensaje o la ejecución visual.','Diseño multimedia o dupla creativa']
-  };
-  document.querySelectorAll('[data-point]').forEach(button => {
-    button.addEventListener('click', () => {
-      document.querySelector('[data-point][aria-pressed="true"]').setAttribute('aria-pressed','false');
-      button.setAttribute('aria-pressed','true');
-      const [label,title,description,mode] = solutions[button.dataset.point];
-      document.querySelector('.solution-label').textContent = label;
-      document.querySelector('#solution-title').textContent = title;
-      document.querySelector('#solution-text').textContent = description;
-      document.querySelector('#solution-mode').textContent = mode;
+      const height = Number(event.data.height);
+      if (Number.isFinite(height)) inquiryFrame.style.height = Math.max(520, Math.min(height + 16, 1500)) + 'px';
     });
-  });
-</script>
-
-<dialog class="image-modal" id="image-modal" aria-label="Imagen del trabajo ampliada">
-  <button class="image-modal-close" type="button" aria-label="Cerrar imagen">×</button>
-  <img src="" alt="">
-</dialog>
-
-<script>
-  const modal = document.querySelector('#image-modal');
-  const modalImage = modal.querySelector('img');
-
-  document.querySelectorAll('.work-card .work-visual').forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      const image = link.querySelector('img');
-      modalImage.src = link.href;
-      modalImage.alt = image.alt;
-      modal.showModal();
+    const solutions = {
+      idea: ['SI TENÉS UNA IDEA', 'La llevamos a una forma concreta.', 'Conversamos sobre el objetivo, ordenamos lo que querés contar y definimos las piezas necesarias para empezar a comunicarlo.', 'Diseño multimedia o dupla creativa'],
+      inicio: ['SI NO SABÉS POR DÓNDE EMPEZAR', 'Encontramos el primer paso.', 'Definimos con vos el mensaje, el enfoque y los contenidos que necesitás antes de empezar a producir las piezas.', 'Dupla creativa'],
+      brief: ['SI YA TENÉS UN BRIEF', 'Lo convertimos en piezas.', 'Tomamos tus objetivos y entregables definidos para desarrollar el diseño, las adaptaciones o el contenido que pide el proyecto.', 'Diseño multimedia o dupla creativa'],
+      contenido: ['SI YA TENÉS EL CONTENIDO', 'Le damos forma visual.', 'Con tus textos, fotos o materiales de base, diseñamos piezas claras y consistentes para los canales donde necesitás comunicar.', 'Diseño multimedia'],
+      diseno: ['SI NECESITÁS SOLAMENTE DISEÑO', 'Me ocupo de diseñarlo.', 'Te sumás con la idea y el contenido y le damos forma visual.', 'Diseño multimedia'],
+      campana: ['SI TU CAMPAÑA YA ESTÁ EN MARCHA', 'Nos incorporamos al ritmo.', 'Podemos desarrollar nuevas creatividades, adaptar formatos o producir las piezas que faltan para sostener la campaña.', 'Diseño multimedia o dupla creativa'],
+      trabado: ['SI TE QUEDASTE TRABADO', 'Destrabamos lo que sigue.', 'Revisamos qué está frenando el avance y proponemos una salida concreta: ajustar la idea, el mensaje o la ejecución visual.', 'Diseño multimedia o dupla creativa']
+    };
+    document.querySelectorAll('[data-point]').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelector('[data-point][aria-pressed="true"]').setAttribute('aria-pressed', 'false');
+        button.setAttribute('aria-pressed', 'true');
+        const [label, title, description, mode] = solutions[button.dataset.point];
+        document.querySelector('.solution-label').textContent = label;
+        document.querySelector('#solution-title').textContent = title;
+        document.querySelector('#solution-text').textContent = description;
+        document.querySelector('#solution-mode').textContent = mode;
+      });
     });
-  });
+  </script>
 
-  modal.querySelector('.image-modal-close').addEventListener('click', () => {
-    modal.close();
-  });
+  <dialog class="image-modal" id="image-modal" aria-label="Imagen del trabajo ampliada">
+    <button class="image-modal-close" type="button" aria-label="Cerrar imagen">×</button>
+    <img src="" alt="">
+  </dialog>
 
-  modal.addEventListener('click', event => {
-    if (event.target === modal) modal.close();
-  });
-</script>
+  <script>
+    const modal = document.querySelector('#image-modal');
+    const modalImage = modal.querySelector('img');
+
+    document.querySelectorAll('.work-card .work-visual').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const image = link.querySelector('img');
+        modalImage.src = link.href;
+        modalImage.alt = image.alt;
+        modal.showModal();
+      });
+    });
+
+    modal.querySelector('.image-modal-close').addEventListener('click', () => {
+      modal.close();
+    });
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal) modal.close();
+    });
+  </script>
 </body>
+
 </html>
