@@ -16,6 +16,105 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <style>
+.work-carousel-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #171c20 #dcff55;
+  padding-bottom: 20px;
+}
+
+.work-carousel .work-card {
+  flex: 0 0 calc((100% - 44px) / 3);
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+  transform: none;
+}
+
+.work-carousel .work-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 390px;
+  padding: 0;
+  background: #171c20;
+  border: 1px solid #171c20;
+  overflow: hidden;
+}
+
+.work-carousel .work-visual::before {
+  display: none;
+}
+
+.work-carousel .work-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-carousel .work-label {
+  margin-top: 10px;
+}
+
+.work-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.work-carousel-controls button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #171c20;
+  border-radius: 50%;
+  background: transparent;
+  color: #171c20;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.work-carousel-controls button:hover {
+  background: #171c20;
+  color: #dcff55;
+}
+
+.work-carousel-controls button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+@media (max-width: 800px) {
+  .work-carousel .work-card {
+    flex-basis: calc((100% - 18px) / 2);
+  }
+
+  .work-carousel-track {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .work-carousel .work-card {
+    flex-basis: 86%;
+  }
+
+  .work-carousel .work-visual {
+    height: 350px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-carousel-track {
+    scroll-behavior: auto;
+  }
+}
+
     .work-visual {
       cursor: zoom-in;
     }
@@ -788,6 +887,9 @@
         transition: none !important
       }
     }
+    .work-carousel .work-card:nth-child(even) {
+  transform: none;
+}
   </style>
   <style>
     .entry-list li {
@@ -1225,51 +1327,87 @@
         </div>
       </div>
     </section>
-    <section class="section work" id="trabajos">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Algunos trabajos.</h2>
-          <p class="work-note">
-            Distintos formatos, marcas y desafíos. Una selección breve para ver
-            el tipo de soluciones que podemos crear.
-          </p>
-        </div>
 
-        <div class="work-grid">
-          <figure class="work-card">
-            <a class="work-visual" href="Mark-sports.png" target="_blank" rel="noopener"
-              aria-label="Ver imagen completa de Mark Sports">
-              <img src="Mark-sports.png" alt="Trabajo de diseño para Mark Sports">
-            </a>
-            <figcaption class="work-label"><strong>Mark Sports</strong></figcaption>
-          </figure>
+   <section class="section work" id="trabajos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Algunos trabajos.</h2>
+      <p class="work-note">
+        Distintos formatos, marcas y desafíos. Una selección breve para ver
+        el tipo de soluciones que podemos crear.
+      </p>
+    </div>
 
-          <figure class="work-card">
-            <a class="work-visual" href="Oh-pic.png" target="_blank" rel="noopener"
-              aria-label="Ver imagen completa de Oh pic!">
-              <img src="Oh-pic.png" alt="Trabajo de diseño para Oh pic!">
-            </a>
-            <figcaption class="work-label"><strong>Oh pic!</strong></figcaption>
-          </figure>
+    <div class="work-carousel">
+      <div class="work-carousel-track" id="work-carousel-track"
+           tabindex="0" aria-label="Carrusel de trabajos">
 
-          <figure class="work-card">
-            <a class="work-visual" href="Sanitarios-rodriguez.png" target="_blank" rel="noopener"
-              aria-label="Ver imagen completa de Sanitarios Rodríguez">
-              <img src="Sanitarios-rodriguez.png" alt="Trabajo de diseño para Sanitarios Rodríguez">
-            </a>
-            <figcaption class="work-label"><strong>Sanitarios Rodríguez</strong></figcaption>
-          </figure>
+        <figure class="work-card">
+          <a class="work-visual" href="mark-sports.png" target="_blank" rel="noopener"
+             aria-label="Ver imagen completa de Mark Sports">
+            <img src="mark-sports.png" alt="Trabajo de diseño para Mark Sports" loading="lazy">
+          </a>
+          <figcaption class="work-label"><strong>Mark Sports</strong></figcaption>
+        </figure>
 
-          <figure class="work-card">
-            <a class="work-visual" href="Gaming-city.png" target="_blank" rel="noopener"
-              aria-label="Ver imagen completa de Gaming City">
-              <img src="Gaming-city.png" alt="Trabajo de diseño para Gaming City">
-            </a>
-            <figcaption class="work-label"><strong>Gaming City</strong></figcaption>
-          </figure>
-        </div>
+        <figure class="work-card">
+          <a class="work-visual" href="oh-pic.png" target="_blank" rel="noopener"
+             aria-label="Ver imagen completa de Oh pic!">
+            <img src="oh-pic.png" alt="Trabajo de diseño para Oh pic!" loading="lazy">
+          </a>
+          <figcaption class="work-label"><strong>Oh pic!</strong></figcaption>
+        </figure>
+
+        <figure class="work-card">
+          <a class="work-visual" href="sanitarios-rodriguez.png" target="_blank" rel="noopener"
+             aria-label="Ver imagen completa de Sanitarios Rodríguez">
+            <img src="sanitarios-rodriguez.png" alt="Trabajo de diseño para Sanitarios Rodríguez" loading="lazy">
+          </a>
+          <figcaption class="work-label"><strong>Sanitarios Rodríguez</strong></figcaption>
+        </figure>
+
+        <figure class="work-card">
+          <a class="work-visual" href="gaming-city.png" target="_blank" rel="noopener"
+             aria-label="Ver imagen completa de Gaming City">
+            <img src="gaming-city.png" alt="Trabajo de diseño para Gaming City" loading="lazy">
+          </a>
+          <figcaption class="work-label"><strong>Gaming City</strong></figcaption>
+        </figure>
+
+        <figure class="work-card">
+          <a class="work-visual" href="Punto-sport.png" target="_blank" rel="noopener"
+             aria-label="Ver imagen completa de Punto Sport">
+            <img src="Punto-sport.png" alt="Trabajo de diseño para Punto Sport" loading="lazy">
+          </a>
+          <figcaption class="work-label"><strong>Punto Sport</strong></figcaption>
+        </figure>
+
+        <figure class="work-card">
+          <a class="work-visual" href="Tienda-next.png" target="_blank" rel="noopener"
+             aria-label="Ver imagen completa de Tienda Next">
+            <img src="Tienda-next.png" alt="Trabajo de diseño para Tienda Next" loading="lazy">
+          </a>
+          <figcaption class="work-label"><strong>Tienda Next</strong></figcaption>
+        </figure>
+
+        <figure class="work-card">
+          <a class="work-visual" href="Mark-s.png" target="_blank" rel="noopener"
+             aria-label="Ver imagen completa de Mark Sports">
+            <img src="Mark-s.png" alt="Otra pieza de diseño para Mark Sports" loading="lazy">
+          </a>
+          <figcaption class="work-label"><strong>Mark Sports · campaña</strong></figcaption>
+        </figure>
       </div>
-    </section>
+
+      <div class="work-carousel-controls">
+        <button type="button" id="work-prev" aria-label="Ver trabajos anteriores">←</button>
+        <button type="button" id="work-next" aria-label="Ver trabajos siguientes">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
     <section class="section working">
       <div class="wrap">
         <div class="section-head">
@@ -1345,6 +1483,33 @@
         document.querySelector('#solution-mode').textContent = mode;
       });
     });
+
+    const workTrack = document.querySelector("#work-carousel-track");
+const workPrev = document.querySelector("#work-prev");
+const workNext = document.querySelector("#work-next");
+
+function updateWorkControls() {
+  workPrev.disabled = workTrack.scrollLeft <= 2;
+  workNext.disabled =
+    workTrack.scrollLeft + workTrack.clientWidth >= workTrack.scrollWidth - 2;
+}
+
+function moveWork(direction) {
+  const card = workTrack.querySelector(".work-card");
+  const gap = parseFloat(getComputedStyle(workTrack).gap) || 0;
+  const distance = card.getBoundingClientRect().width + gap;
+
+  workTrack.scrollBy({
+    left: direction * distance,
+    behavior: "smooth"
+  });
+}
+
+workPrev.addEventListener("click", () => moveWork(-1));
+workNext.addEventListener("click", () => moveWork(1));
+workTrack.addEventListener("scroll", updateWorkControls, { passive: true });
+window.addEventListener("resize", updateWorkControls);
+updateWorkControls();
   </script>
 
   <dialog class="image-modal" id="image-modal" aria-label="Imagen del trabajo ampliada">
