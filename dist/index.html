@@ -1694,6 +1694,44 @@ updateWorkControls();
       if (event.target === modal) modal.close();
     });
   </script>
+  <script>
+(function () {
+  // Recupera el ID anónimo del prospecto desde la URL.
+  // Ejemplo: ?utm_content=P028
+  const params = new URLSearchParams(window.location.search);
+  const prospectId = params.get('utm_content');
+
+  if (prospectId) {
+    sessionStorage.setItem('prospect_id', prospectId);
+  }
+
+  const getProspectId = () =>
+    sessionStorage.getItem('prospect_id') || 'sin_id';
+
+  // Envía eventos a Google Tag Manager
+  const trackEvent = (eventName) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: eventName,
+      prospect_id: getProspectId()
+    });
+  };
+
+  // WhatsApp
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('whatsapp_click');
+    });
+  });
+
+  // Email
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('email_click');
+    });
+  });
+})();
+</script>
 </body>
 
 </html>
