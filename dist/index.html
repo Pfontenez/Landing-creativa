@@ -75,9 +75,8 @@
   <meta name="description"
     content="Diseño y comunicación para PyMEs argentinas. Nos sumamos desde el punto en el que estés para llevar tus ideas a piezas concretas.">
   <title>Desde donde estás — Diseño y dupla creativa</title>
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23171c20'/%3E%3Cpath d='M13 50V16h12v20h14V16h12v34' fill='none' stroke='%23dcff55' stroke-width='6'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/png" href="./favicon.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
@@ -1714,19 +1713,51 @@
     }
   }
 </style>
+<style>
+  .site-header .brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo {
+    display: block;
+    width: 180px;
+    height: auto;
+    max-height: 64px;
+    object-fit: contain;
+  }
+
+  .footer-logo {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 800px) {
+    .header-logo {
+      width: 155px;
+      max-height: 58px;
+    }
+
+    .footer-logo {
+      width: 220px;
+    }
+  }
+</style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K49BNCFL"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <header>
-   <header class="site-header">
-  <nav class="nav wrap" aria-label="Navegación principal">
-    <a class="brand" href="#inicio">
-      Soluciones digitales<span> /</span> Dupla Creativa
-    </a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navegación principal">
+  <a class="brand" href="#inicio"
+  aria-label="Soluciones Digitales · Dupla Creativa — Inicio">
+  <img
+    class="header-logo"
+    src="./logo-soluciones-digitales.png"
+    alt="Soluciones Digitales · Dupla Creativa"
+  >
+</a>
 
     <button
       class="menu-toggle"
@@ -1744,11 +1775,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#quienes-somos">Nosotros</a>
       <a href="#servicios">Servicios</a>
       <a href="#trabajos">Trabajos</a>
+      <a href="#recursos">Recursos</a>
       <a class="menu-contact" href="#formulario">Hablemos</a>
     </div>
   </nav>
 </header>
-  </header>
   <main>
     <section class="hero" id="inicio"><img class="hero-art" src="hero-abstracto.webp" alt="" width="1672" height="941"
         fetchpriority="high" decoding="async">
@@ -2037,6 +2068,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <section id="recursos" aria-labelledby="recursos-title">
+  <div class="rec-wrap">
+    <span>RECURSOS GRATUITOS</span>
+    <h2 id="recursos-title">Ideas para avanzar.</h2>
+    <p>
+      Guías para desarrollar tu comunicación y conocer
+      cómo podemos trabajar juntos.
+    </p>
+    <div class="rec-actions">
+      <button class="rec-button" type="button"
+        data-rec-open="rec-agencias">
+        Para agencias
+      </button>
+      <button class="rec-button" type="button"
+        data-rec-open="rec-marcas">
+        Para marcas y comercios
+      </button>
+    </div>
+  </div>
+</section>
+
    <section class="section work" id="trabajos">
   <div class="wrap">
     <div class="section-head">
@@ -2231,26 +2283,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 </style>
 
-<section id="recursos" aria-labelledby="recursos-title">
-  <div class="rec-wrap">
-    <span>RECURSOS GRATUITOS</span>
-    <h2 id="recursos-title">Ideas para avanzar.</h2>
-    <p>
-      Guías para desarrollar tu comunicación y conocer
-      cómo podemos trabajar juntos.
-    </p>
-    <div class="rec-actions">
-      <button class="rec-button" type="button"
-        data-rec-open="rec-agencias">
-        Para agencias
-      </button>
-      <button class="rec-button" type="button"
-        data-rec-open="rec-marcas">
-        Para marcas y comercios
-      </button>
-    </div>
-  </div>
-</section>
+
 
 <dialog class="rec-dialog" id="rec-agencias"
   aria-labelledby="rec-agencias-title">
@@ -2463,12 +2496,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
   </main>
-  <footer class="web-footer">
+<footer class="web-footer">
   <div class="web-footer-grid">
     <div>
-      <a class="web-footer-brand" href="#inicio">
-        Soluciones digitales
-      </a>
+<a class="web-footer-brand" href="#inicio">
+  <img
+    class="footer-logo"
+    src="./logo-soluciones-digitales.png"
+    alt="Soluciones Digitales · Dupla Creativa"
+    loading="lazy"
+  >
+</a>
 
       <p class="web-footer-description">
         Desarrollamos tus ideas.<br>
@@ -2481,6 +2519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="web-footer-nav" aria-label="Navegación del pie">
       <span class="web-footer-heading">Explorá</span>
       <a href="#servicios">Servicios</a>
+      <a href="#recursos">Recursos</a>
       <a href="#trabajos">Trabajos</a>
       <a href="#quienes-somos">Nosotros</a>
       <a href="#como-trabajamos">Cómo trabajamos</a>
@@ -2513,10 +2552,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           aria-label="Contactar por WhatsApp"
           title="WhatsApp"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7a8.5 8.5 0 1 1 16.2-4.1Z"/>
-            <path d="M8.3 7.8c.3-.3.7-.2.9.2l.8 1.7c.1.3.1.5-.1.7l-.6.7c.7 1.3 1.7 2.3 3 2.9l.7-.8c.2-.2.4-.3.7-.1l1.7.8c.4.2.5.5.3.9-.4.9-1.1 1.3-2.1 1.1-3.2-.6-6.2-3.5-6.8-6.5-.2-.7.5-1.3 1.5-1.6Z"/>
-          </svg>
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+  style="fill:currentColor;stroke:none;"
+>
+  <path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.46 0 .1 5.36.1 11.95c0 2.1.55 4.16 1.6 5.97L0 24l6.26-1.64a11.94 11.94 0 0 0 5.79 1.48h.01c6.59 0 11.95-5.36 11.95-11.95 0-3.19-1.24-6.19-3.49-8.41ZM12.06 21.82a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.9 9.9 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.86Zm5.44-7.43c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.11 4.52.71.3 1.27.49 1.7.63.71.22 1.36.19 1.87.11.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/>
+</svg>
         </a>
 
         <a
@@ -3101,6 +3144,80 @@ updateWorkControls();
   });
 })();
 </script>
+<!-- WhatsApp flotante -->
+<style>
+  .whatsapp-float {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border: 1px solid #171c20;
+    border-radius: 50%;
+    background: #dcff55;
+    color: #171c20;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    background: #f3f3ee;
+  }
+
+  .whatsapp-float:focus-visible {
+    outline: 3px solid #171c20;
+    outline-offset: 4px;
+  }
+
+  .whatsapp-float svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Se oculta mientras hay una ventana o aviso de cookies. */
+  body:has(dialog[open]) .whatsapp-float,
+  body:has(#cookie-banner:not([hidden])) .whatsapp-float {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    .whatsapp-float {
+      right: 18px;
+      bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+      width: 54px;
+      height: 54px;
+    }
+  }
+</style>
+
+<a
+  class="whatsapp-float"
+  id="whatsapp-flotante"
+  data-ubicacion="boton_flotante"
+  href="https://wa.me/541134145166?text=Hola%2C%20vi%20la%20web%20de%20Soluciones%20digitales%20%2F%20Dupla%20Creativa%20y%20me%20gustar%C3%ADa%20consultarles%20por%20sus%20servicios.%20Necesito%20ayuda%20con%E2%80%A6"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Contactar a Soluciones digitales por WhatsApp"
+  title="Hablemos por WhatsApp"
+>
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+  style="fill:currentColor;stroke:none;"
+>
+  <path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.46 0 .1 5.36.1 11.95c0 2.1.55 4.16 1.6 5.97L0 24l6.26-1.64a11.94 11.94 0 0 0 5.79 1.48h.01c6.59 0 11.95-5.36 11.95-11.95 0-3.19-1.24-6.19-3.49-8.41ZM12.06 21.82a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.9 9.9 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.86Zm5.44-7.43c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.11 4.52.71.3 1.27.49 1.7.63.71.22 1.36.19 1.87.11.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/>
+</svg>
+</a>
 </body>
 
 </html>
