@@ -2116,6 +2116,309 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- RECURSOS -->
+<style>
+  #recursos {
+    padding: 72px 24px;
+    background: #f3f3ee;
+    color: #171c20;
+  }
+  #recursos .rec-wrap {
+    max-width: 1200px;
+    margin: auto;
+  }
+  #recursos h2 {
+    margin: 12px 0 20px;
+    font: 600 clamp(2rem, 5vw, 4rem)/1.05
+      'Space Grotesk', sans-serif;
+    letter-spacing: -.05em;
+  }
+  #recursos p {
+    max-width: 650px;
+    line-height: 1.6;
+  }
+  .rec-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .rec-button {
+    display: inline-block;
+    padding: 14px 22px;
+    border: 1px solid #171c20;
+    border-radius: 6px;
+    background: #dcff55;
+    color: #171c20;
+    font: 600 1rem 'DM Sans', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .rec-dialog {
+    box-sizing: border-box;
+    width: min(880px, calc(100% - 32px));
+    max-height: 85dvh;
+    margin: auto;
+    padding: 32px;
+    overflow-y: auto;
+    border: 1px solid #171c20;
+    background: #f3f3ee;
+    color: #171c20;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .rec-dialog::backdrop {
+    background: rgba(0, 0, 0, .7);
+  }
+  .rec-dialog h2 {
+    margin: 0 48px 24px 0;
+    font: 600 2rem/1.1 'Space Grotesk', sans-serif;
+  }
+  .rec-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .rec-card {
+    padding: 24px;
+    border: 1px solid #171c20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rec-card h3 {
+    margin: 12px 0;
+    font-size: 1.3rem;
+  }
+  .rec-card p {
+    margin: 0 0 24px;
+    line-height: 1.6;
+  }
+  .rec-card .rec-button,
+  .rec-card .rec-status {
+    margin-top: auto;
+  }
+  .rec-extra {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #171c20;
+    line-height: 1.6;
+  }
+  .rec-extra a {
+    color: inherit;
+    text-underline-offset: 4px;
+  }
+  .rec-button:focus-visible,
+  .rec-close:focus-visible,
+  .rec-extra a:focus-visible {
+    outline: 3px solid #171c20;
+    outline-offset: 4px;
+  }
+  @media (max-width: 600px) {
+    .rec-grid { grid-template-columns: 1fr; }
+    .rec-dialog { padding: 28px 20px; }
+  }
+</style>
+
+<section id="recursos" aria-labelledby="recursos-title">
+  <div class="rec-wrap">
+    <span>RECURSOS GRATUITOS</span>
+    <h2 id="recursos-title">Ideas para avanzar.</h2>
+    <p>
+      Guías para desarrollar tu comunicación y conocer
+      cómo podemos trabajar juntos.
+    </p>
+    <div class="rec-actions">
+      <button class="rec-button" type="button"
+        data-rec-open="rec-agencias">
+        Para agencias
+      </button>
+      <button class="rec-button" type="button"
+        data-rec-open="rec-marcas">
+        Para marcas y comercios
+      </button>
+    </div>
+  </div>
+</section>
+
+<dialog class="rec-dialog" id="rec-agencias"
+  aria-labelledby="rec-agencias-title">
+  <button class="rec-close" type="button"
+    data-rec-close aria-label="Cerrar recursos para agencias">×</button>
+  <h2 id="rec-agencias-title">Para agencias</h2>
+
+  <div class="rec-grid">
+    <article class="rec-card">
+      <small>PUESTA EN MARCHA</small>
+      <h3>Cómo nos sumamos a tu agencia</h3>
+      <p>
+        Del primer brief a las entregas: cómo organizamos
+        nuestra colaboración freelance con tu equipo.
+      </p>
+     <a class="rec-button"
+  href="./recursos/nos-sumamos-a-tu-agencia.pdf"
+  download
+  target="_blank"
+  rel="noopener noreferrer">
+  Descargar PDF
+</a>
+    </article>
+
+    <article class="rec-card">
+      <small>ORGANIZACIÓN DEL TRABAJO</small>
+      <h3>Qué delegar y cómo preparar el brief</h3>
+      <p>
+        Una guía para definir las tareas, reunir los materiales
+        y preparar tu próxima entrega.
+      </p>
+      <span class="rec-status">Próximamente</span>
+    </article>
+  </div>
+</dialog>
+
+<dialog class="rec-dialog" id="rec-marcas"
+  aria-labelledby="rec-marcas-title">
+  <button class="rec-close" type="button"
+    data-rec-close aria-label="Cerrar recursos para marcas y comercios">×</button>
+  <h2 id="rec-marcas-title">Para marcas y comercios</h2>
+
+  <div class="rec-grid">
+    <article class="rec-card">
+      <small>DEL MENSAJE AL FORMATO</small>
+      <h3>De la idea a las piezas</h3>
+      <p>
+        Cinco preguntas, un ejemplo y una plantilla
+        para ordenar tu próxima pieza.
+      </p>
+     <a class="rec-button"
+  href="./recursos/de-la-idea-a-las-piezas.pdf"
+  download
+  target="_blank"
+  rel="noopener noreferrer">
+  Descargar PDF
+</a>
+    </article>
+
+    <article class="rec-card">
+      <small>PRIMERAS PALABRAS</small>
+      <h3>Una buena idea necesita un buen comienzo</h3>
+      <p>
+        Seis formas de empezar una publicación
+        y darle dirección a tu mensaje.
+      </p>
+      <a class="rec-button"
+  href="./recursos/un-buen-comienzo.pdf"
+  download
+  target="_blank"
+  rel="noopener noreferrer">
+  Descargar PDF
+</a>
+    </article>
+  </div>
+
+    <div class="rec-extra">
+    <strong>Querés más ejemplos?</strong>
+    <p>
+      Solicitá gratis la guía
+      “24 aperturas para desarrollar tus ideas”.
+    </p>
+    <a href="#guia-24-dialog"
+      onclick="
+        event.preventDefault();
+        this.closest('dialog').close();
+        document.getElementById('guia-24-dialog').showModal();
+      ">
+      Solicitar guía
+    </a>
+  </div>
+</dialog>
+
+<dialog id="guia-24-dialog"
+  aria-labelledby="guia-24-title"
+  style="
+    width: min(540px, calc(100% - 32px));
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 28px;
+    border: 1px solid #171c20;
+    background: #f3f3ee;
+    color: #171c20;
+    font-family: 'DM Sans', Arial, sans-serif;
+  ">
+
+  <form method="dialog" style="margin: 0; text-align: right;">
+    <button type="submit" aria-label="Cerrar solicitud de guía"
+      style="
+        cursor: pointer;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        padding: 8px;
+      ">
+      Cerrar ✕
+    </button>
+  </form>
+
+  <h2 id="guia-24-title" style="margin: 12px 0;">
+    24 aperturas para desarrollar tus ideas.
+  </h2>
+
+  <p style="line-height: 1.5; margin-bottom: 20px;">
+    Dejanos tu nombre y correo para recibir la guía gratis.
+  </p>
+
+  <iframe
+    title="Solicitud de la guía de 24 aperturas"
+    src="https://script.google.com/macros/s/AKfycbwye3BlEEcR1O8dgJgVVdqVq1z8mDRXpIM1Ys9uKAR_KiIqpHNspudDD7ePS23ZLiYy/exec?recurso=24-aperturas"
+    loading="lazy"
+    style="display: block; width: 100%; height: 480px; border: 0;">
+  </iframe>
+</dialog>
+
+<script>
+  (() => {
+    document.querySelectorAll('[data-rec-open]').forEach(button => {
+      button.addEventListener('click', () => {
+        const dialog = document.getElementById(button.dataset.recOpen);
+        if (dialog && !dialog.open) dialog.showModal();
+      });
+    });
+
+    document.querySelectorAll('[data-rec-close]').forEach(button => {
+      button.addEventListener('click', () => {
+        button.closest('dialog').close();
+      });
+    });
+
+    document.querySelectorAll('.rec-dialog').forEach(dialog => {
+      dialog.addEventListener('click', event => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        if (
+          event.clientX < rect.left || event.clientX > rect.right ||
+          event.clientY < rect.top || event.clientY > rect.bottom
+        ) {
+          dialog.close();
+        }
+      });
+    });
+  })();
+</script>
+<!-- FIN RECURSOS -->
+
 
     <section class="section working">
       <div class="wrap">
