@@ -2,14 +2,74 @@
 <html lang="es-AR">
 
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K49BNCFL');</script>
-<!-- End Google Tag Manager -->
-  <meta charset="utf-8">
+<!-- Consentimiento y Google Tag Manager -->
+<script>
+  (() => {
+    const key = 'sd_cookie_preferences';
+    const maxAge = 180 * 24 * 60 * 60 * 1000;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+
+    let preferences = null;
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(key));
+
+      if (
+        saved &&
+        saved.version === 1 &&
+        typeof saved.analytics === 'boolean' &&
+        typeof saved.marketing === 'boolean' &&
+        Number.isFinite(saved.savedAt) &&
+        Date.now() >= saved.savedAt &&
+        Date.now() - saved.savedAt < maxAge
+      ) {
+        preferences = saved;
+      }
+    } catch (error) {
+      /* Si no se puede leer la elección, se solicitan preferencias. */
+    }
+
+    window.sdCookiePreferences = preferences;
+
+    gtag('consent', 'default', {
+      analytics_storage: preferences?.analytics ? 'granted' : 'denied',
+      ad_storage: preferences?.marketing ? 'granted' : 'denied',
+      ad_user_data: preferences?.marketing ? 'granted' : 'denied',
+      ad_personalization: preferences?.marketing ? 'granted' : 'denied'
+    });
+
+    let loaded = false;
+
+    window.sdLoadTagManager = function () {
+      if (loaded) return;
+      loaded = true;
+      window.sdTagManagerLoaded = true;
+
+      dataLayer.push({
+        'gtm.start': Date.now(),
+        event: 'gtm.js'
+      });
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src =
+        'https://www.googletagmanager.com/gtm.js?id=GTM-K49BNCFL';
+
+      document.head.appendChild(script);
+    };
+
+    if (preferences?.analytics || preferences?.marketing) {
+      window.sdLoadTagManager();
+    }
+  })();
+</script>
+<!-- END Consentimiento y Google Tag Manager -->
+
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171c20">
   <meta name="description"
@@ -502,7 +562,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .mode:first-child h3:after {
-      content: '↗';
+      content: '';
       color: #dcff55;
       font-size: .5em;
       vertical-align: top;
@@ -1217,6 +1277,443 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
   </style>
+  <style>
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    width: 100%;
+    background: #171c20;
+    color: #f3f3ee;
+    border-bottom: 1px solid rgba(243, 243, 238, 0.25);
+  }
+
+  .site-header .nav {
+    position: relative;
+    height: 80px;
+    gap: 24px;
+    border-bottom: 0;
+  }
+
+  .site-header .nav .brand {
+    flex-shrink: 0;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border: 0;
+    padding: 0;
+  }
+
+  .site-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .site-header .site-menu a {
+    padding: 8px 0;
+    border: 0;
+    color: #f3f3ee;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .site-header .site-menu a:hover {
+    color: #dcff55;
+  }
+
+  .site-header .site-menu .menu-contact {
+    padding: 10px 14px;
+    background: #dcff55;
+    color: #171c20;
+    font-weight: 700;
+  }
+
+  .site-header a:focus-visible,
+  .menu-toggle:focus-visible {
+    outline: 2px solid #dcff55;
+    outline-offset: 5px;
+  }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border: 0;
+    background: transparent;
+    color: #f3f3ee;
+    font: 600 0.95rem 'DM Sans', Arial, sans-serif;
+    cursor: pointer;
+  }
+
+  /* Evita que el menú tape el título al ir a una sección. */
+  main section[id] {
+    scroll-margin-top: 100px;
+  }
+
+  @media (max-width: 1150px) {
+    .site-header .nav {
+      height: 72px;
+    }
+
+    .site-header .nav .brand {
+      max-width: calc(100% - 90px);
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .site-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: calc(100dvh - 88px);
+      overflow-y: auto;
+      padding: 16px 24px 24px;
+      background: #171c20;
+      border: 1px solid rgba(243, 243, 238, 0.25);
+    }
+
+    .site-menu.is-open {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .site-header .site-menu a {
+      padding: 15px 0;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(243, 243, 238, 0.15);
+    }
+
+    .site-header .site-menu .menu-contact {
+      margin-top: 16px;
+      padding: 14px;
+      border: 0;
+      text-align: center;
+    }
+
+    main section[id] {
+      scroll-margin-top: 88px;
+    }
+  }
+</style>
+<style>
+  .person-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+    margin-top: 24px;
+  }
+
+  .person-links a {
+    margin: 0;
+  }
+</style>
+<style>
+  footer.web-footer {
+    display: block;
+    margin-top: 64px;
+    padding: 48px 0 0;
+    border-top: 1px solid rgba(243,243,238,.25);
+    color: #f3f3ee;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: .9rem;
+  }
+
+  .web-footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1.2fr .8fr;
+    gap: 36px;
+  }
+
+  .web-footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .web-footer-brand {
+    font: 700 1.4rem 'Space Grotesk', Arial, sans-serif;
+    letter-spacing: -.05em;
+  }
+
+  .web-footer-description {
+    margin: 16px 0;
+    line-height: 1.6;
+  }
+
+  .web-footer-location {
+    margin: 0;
+    font-size: .8rem;
+    opacity: .65;
+  }
+
+  .web-footer-heading {
+    display: block;
+    margin-bottom: 18px;
+    color: #dcff55;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .web-footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .web-footer-nav .web-footer-heading {
+    margin-bottom: 6px;
+  }
+
+  .web-footer button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .web-footer a:hover,
+  .web-footer button:hover {
+    color: #dcff55;
+  }
+
+  .web-footer-icons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .web-footer-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(243,243,238,.4);
+    border-radius: 50%;
+  }
+
+  .web-footer-icons a:hover {
+    border-color: #dcff55;
+  }
+
+  .web-footer-icons svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .web-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-top: 44px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(243,243,238,.2);
+    font-size: .75rem;
+    line-height: 1.6;
+  }
+
+  .web-footer-bottom a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .legal-dialog {
+    box-sizing: border-box;
+    width: min(680px, calc(100% - 32px));
+    max-height: 85dvh;
+    margin: auto;
+    padding: 32px;
+    overflow-y: auto;
+    border: 1px solid #171c20;
+    background: #f3f3ee;
+    color: #171c20;
+    font-family: 'DM Sans', Arial, sans-serif;
+  }
+
+  .legal-dialog::backdrop {
+    background: rgba(0,0,0,.72);
+  }
+
+  .legal-dialog h2 {
+    margin: 0 40px 24px 0;
+    font: 600 2rem/1.1 'Space Grotesk', Arial, sans-serif;
+    letter-spacing: -.06em;
+  }
+
+  .legal-dialog h3 {
+    margin: 24px 0 8px;
+    font-size: 1rem;
+  }
+
+  .legal-dialog p {
+    margin: 0 0 16px;
+    font-size: .95rem;
+    line-height: 1.65;
+  }
+
+  .legal-dialog a {
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+
+  .legal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #171c20;
+    background: transparent;
+    color: #171c20;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .cookie-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 16px 0;
+    padding: 16px 0;
+    border-top: 1px solid rgba(23,28,32,.2);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .cookie-option input {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: #171c20;
+  }
+
+  .cookie-option small {
+    display: block;
+    margin-top: 5px;
+    font-size: .85rem;
+  }
+
+  .cookie-banner {
+    position: fixed;
+    z-index: 300;
+    bottom: 16px;
+    right: 16px;
+    box-sizing: border-box;
+    width: min(500px, calc(100% - 32px));
+    padding: 24px;
+    border: 1px solid #171c20;
+    background: #f3f3ee;
+    color: #171c20;
+    box-shadow: 0 8px 32px rgba(0,0,0,.2);
+    font-family: 'DM Sans', Arial, sans-serif;
+  }
+
+  .cookie-banner[hidden] {
+    display: none;
+  }
+
+  .cookie-banner p {
+    margin: 0 0 18px;
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .cookie-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cookie-actions button {
+    flex: 1 1 auto;
+    padding: 12px 14px;
+    border: 1px solid #171c20;
+    background: transparent;
+    color: #171c20;
+    font: 600 .85rem 'DM Sans', Arial, sans-serif;
+    cursor: pointer;
+  }
+
+  .cookie-actions .cookie-primary {
+    background: #dcff55;
+  }
+
+  .web-footer a:focus-visible,
+  .web-footer button:focus-visible {
+    outline: 2px solid #dcff55;
+    outline-offset: 5px;
+  }
+
+  .legal-dialog button:focus-visible,
+  .cookie-banner button:focus-visible,
+  .cookie-option input:focus-visible {
+    outline: 2px solid #171c20;
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 800px) {
+    .web-footer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px 24px;
+    }
+
+    .web-footer-bottom {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .web-footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .legal-dialog {
+      padding: 28px 22px;
+    }
+  }
+</style>
+<style>
+  footer.web-footer {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 48px max(32px, calc((100% - 1440px) / 2)) 28px;
+    border: 0;
+    background: #171c20;
+    color: #f3f3ee;
+  }
+
+  @media (max-width: 800px) {
+    footer.web-footer {
+      padding: 36px 18px 24px;
+    }
+  }
+</style>
 </head>
 
 <body>
@@ -1225,8 +1722,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <header>
-    <nav class="nav wrap" aria-label="Navegación principal"><a class="brand" href="#inicio">Soluciones digitales<span>
-          /</span> Dupla Creativa</a><a href="#contacto">Hablemos ↗</a></nav>
+   <header class="site-header">
+  <nav class="nav wrap" aria-label="Navegación principal">
+    <a class="brand" href="#inicio">
+      Soluciones digitales<span> /</span> Dupla Creativa
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+    >
+      Menú <span aria-hidden="true">☰</span>
+    </button>
+
+    <div class="site-menu" id="site-menu">
+      <a href="#punto">Tu proyecto</a>
+      <a href="#modalidades">Modalidades</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+      <a href="#quienes-somos">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajos">Trabajos</a>
+      <a class="menu-contact" href="#formulario">Hablemos</a>
+    </div>
+  </nav>
+</header>
   </header>
   <main>
     <section class="hero" id="inicio"><img class="hero-art" src="hero-abstracto.webp" alt="" width="1672" height="941"
@@ -1260,7 +1781,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="journey-aside" aria-live="polite" aria-atomic="true"><span class="eyebrow">Desarrollamos tu idea de la mejor forma</span><span class="solution-label">SI TENÉS UNA IDEA</span><strong id="solution-title">La llevamos a
               una forma concreta.</strong>
             <p id="solution-text">Conversamos sobre el objetivo, ordenamos lo que querés contar y definimos las piezas necesarias para comunicar tu negocio.</p><span class="solution-mode" id="solution-mode">Diseño multimedia
-              o dupla creativa</span><br><a href="#contacto">Contanos en qué punto estás ↗</a>
+              o dupla creativa</span><br><a href="#contacto">Contanos en qué punto estás</a>
           </div>
         </div>
       </div>
@@ -1424,9 +1945,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3>Pablo Ezequiel Fonteñez</h3>
               <p class="person-role">Diseño y dirección de arte digital</p>
               <p>Desde el diseño y la dirección de arte, traduzco ideas en piezas visuales claras y coherentes. 
-                Trabajo en identidad, campañas, contenido digital y piezas web, de principio a fin.</p><a href="https://www.linkedin.com/in/pfontenez/" target="_blank"
-                rel="noopener noreferrer" aria-label="Ver perfil de Pablo Fonteñez en LinkedIn">Conocé su recorrido
-                ↗</a>
+                Trabajo en identidad, campañas, contenido digital y piezas web, de principio a fin.</p>
+                <div class="person-links">
+  <a
+    href="https://www.linkedin.com/in/pfontenez/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Ver perfil de Pablo Fonteñez en LinkedIn"
+  >
+    Ver su perfil de LinkedIn
+  </a>
+
+  <a
+    href="https://portfolio-pablo-fontenez-web.pabloezequielfontenez.workers.dev/?utm_source=landing_dupla_creativa&amp;utm_medium=referral&amp;utm_campaign=dupla_creativa&amp;utm_content=enlace_portfolio"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Ver portfolio de Pablo Fonteñez"
+  >
+    Portfolio
+  </a>
+</div>
             </div>
           </article>
           <article class="person">
@@ -1436,10 +1974,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3>Nicolás Morales Bissio</h3>
               <p class="person-role">Periodista, copywriter y social media manager</p>
               <p>Desde el contenido, ayudo a definir qué decir y cómo decirlo. Desarrollo mensajes, textos y 
-                contenidos para cada canal.</p><a
-                href="https://www.linkedin.com/in/nicol%C3%A1s-morales-bissio-413909248/" target="_blank"
-                rel="noopener noreferrer" aria-label="Ver perfil de Nicolás Morales Bissio en LinkedIn">Conocé su
-                recorrido ↗</a>
+                contenidos para cada canal.</p>
+                <div class="person-links">
+  <a
+    href="https://www.linkedin.com/in/nicol%C3%A1s-morales-bissio-413909248/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Ver perfil de Nicolás Morales Bissio en LinkedIn"
+  >
+    Ver su perfil de LinkedIn
+  </a>
+
+  <a
+    href="https://pfontenez.github.io/Portfolio-nicolas/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Ver portfolio de Nicolás Morales Bissio"
+  >
+    Portfolio
+  </a>
+</div>
             </div>
           </article>
         </div>
@@ -1599,14 +2153,100 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>¿Hasta dónde llegaste?</h2>
         <div class="contact-actions"><a
             href="https://wa.me/541134145166?text=Hola%20Pablo%2C%20quiero%20contarte%20sobre%20un%20proyecto."
-            target="_blank" rel="noopener">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a><a
+            target="_blank" rel="noopener">Hablemos por WhatsApp <span aria-hidden="true"></span></a><a
             href="mailto:pabloezequielfontenez@gmail.com?subject=Consulta%20por%20servicios%20creativos">Escribinos por
-            email <span aria-hidden="true">↗</span></a></div>
-        <footer><span>Pablo Fonteñez · Diseño y comunicación</span><span class="muted">Buenos Aires, Argentina · ©
-            2026</span></footer>
+            email <span aria-hidden="true"></span></a></div>
+        
       </div>
     </section>
   </main>
+  <footer class="web-footer">
+  <div class="web-footer-grid">
+    <div>
+      <a class="web-footer-brand" href="#inicio">
+        Soluciones digitales
+      </a>
+
+      <p class="web-footer-description">
+        Desarrollamos tus ideas.<br>
+        Diseño, comunicación y contenido.
+      </p>
+
+      <p class="web-footer-location">Buenos Aires, Argentina</p>
+    </div>
+
+    <nav class="web-footer-nav" aria-label="Navegación del pie">
+      <span class="web-footer-heading">Explorá</span>
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#quienes-somos">Nosotros</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+    </nav>
+
+    <div class="web-footer-nav">
+      <span class="web-footer-heading">Información</span>
+
+      <button type="button" data-open-dialog="privacy-dialog">
+        Privacidad
+      </button>
+
+      <button type="button" data-open-dialog="terms-dialog">
+        Términos de uso
+      </button>
+
+      <button type="button" data-open-dialog="cookies-dialog">
+        Preferencias de cookies
+      </button>
+    </div>
+
+    <div>
+      <span class="web-footer-heading">Conversemos</span>
+
+      <div class="web-footer-icons">
+        <a
+          href="https://wa.me/541134145166?text=Hola%2C%20quiero%20contarles%20sobre%20un%20proyecto."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contactar por WhatsApp"
+          title="WhatsApp"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7a8.5 8.5 0 1 1 16.2-4.1Z"/>
+            <path d="M8.3 7.8c.3-.3.7-.2.9.2l.8 1.7c.1.3.1.5-.1.7l-.6.7c.7 1.3 1.7 2.3 3 2.9l.7-.8c.2-.2.4-.3.7-.1l1.7.8c.4.2.5.5.3.9-.4.9-1.1 1.3-2.1 1.1-3.2-.6-6.2-3.5-6.8-6.5-.2-.7.5-1.3 1.5-1.6Z"/>
+          </svg>
+        </a>
+
+        <a
+          href="mailto:pabloezequielfontenez@gmail.com?subject=Consulta%20por%20servicios%20creativos"
+          aria-label="Contactar por correo electrónico"
+          title="Correo electrónico"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="1"/>
+            <path d="m3 6 9 7 9-7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="web-footer-bottom">
+    <span>
+      © <span id="footer-year">2026</span> Soluciones digitales
+    </span>
+
+    <span>
+      Diseño y desarrollo por
+      <a
+        href="https://portfolio-pablo-fontenez-web.pabloezequielfontenez.workers.dev/?utm_source=landing_dupla_creativa&amp;utm_medium=referral&amp;utm_campaign=dupla_creativa&amp;utm_content=credito_footer"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Pablo Fonteñez</a>
+    </span>
+
+    <a href="#inicio">Volver al inicio</a>
+  </div>
+</footer>
   <script>
     const inquiryFrame = document.querySelector('#inquiry-frame');
     const inquiryUrl = inquiryFrame.dataset.src;
@@ -1694,6 +2334,432 @@ updateWorkControls();
       if (event.target === modal) modal.close();
     });
   </script>
+  <script>
+  (() => {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#site-menu');
+
+    function closeMenu() {
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.site-header')) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+
+    window.matchMedia('(max-width: 1150px)')
+      .addEventListener('change', closeMenu);
+  })();
+</script>
+<!-- PRIVACIDAD -->
+<dialog
+  class="legal-dialog"
+  id="privacy-dialog"
+  aria-labelledby="privacy-title"
+>
+  <button class="legal-close" type="button"
+    data-close-dialog aria-label="Cerrar privacidad">×</button>
+
+  <h2 id="privacy-title">Privacidad</h2>
+  <p><small>Última actualización: 18 de octubre de 2026.</small></p>
+
+  <h3>Quién gestiona el sitio</h3>
+  <p>
+    Este sitio presenta los servicios de Soluciones digitales.
+    Pablo Ezequiel Fonteñez gestiona las consultas de privacidad.
+    Podés escribir a
+    <a href="mailto:pabloezequielfontenez@gmail.com">
+      pabloezequielfontenez@gmail.com
+    </a>.
+  </p>
+
+  <h3>Consultas y datos de contacto</h3>
+  <p>
+    Cuando completás el formulario o nos contactás por correo o
+    WhatsApp, recibimos los datos que compartís, como tu nombre,
+    correo y detalles del proyecto. Los utilizamos para responder,
+    preparar propuestas y dar seguimiento a tu consulta.
+    Evitá enviar información sensible o datos de terceros que no
+    sean necesarios.
+  </p>
+
+  <h3>Medición y publicidad</h3>
+  <p>
+    Con tu autorización podemos usar Google Analytics para conocer
+    las visitas y las interacciones con el sitio. También podemos
+    incorporar Google Ads y el píxel de Meta para medir campañas
+    y crear audiencias publicitarias cuando esos servicios estén
+    configurados y autorices la categoría Publicidad.
+  </p>
+
+  <h3>Servicios externos</h3>
+  <p>
+    El sitio está alojado en GitHub Pages y utiliza servicios de
+    Google para el formulario y las tipografías. Estos servicios
+    pueden recibir datos técnicos de conexión, como la dirección IP.
+    Si abrís WhatsApp, LinkedIn u otros sitios externos, se aplican
+    también sus propias políticas de privacidad.
+  </p>
+  <p>
+    Los proveedores pueden procesar información en otros países.
+    Podés consultar las políticas de
+    <a href="https://policies.google.com/privacy"
+      target="_blank" rel="noopener noreferrer">Google</a>,
+    <a href="https://www.facebook.com/privacy/policy/"
+      target="_blank" rel="noopener noreferrer">Meta</a> y
+    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+      target="_blank" rel="noopener noreferrer">GitHub</a>.
+  </p>
+
+  <h3>Conservación y tus derechos</h3>
+  <p>
+    Conservamos las consultas mientras sean necesarias para su
+    seguimiento y para atender las obligaciones aplicables.
+    Podés solicitar acceso, rectificación o supresión de tus datos,
+    o retirar tu autorización para comunicaciones comerciales,
+    escribiendo al correo indicado.
+  </p>
+
+  <p>
+    En Argentina, la Agencia de Acceso a la Información Pública
+    es la autoridad de control en materia de datos personales.
+    Más información en
+    <a href="https://www.argentina.gob.ar/aaip"
+      target="_blank" rel="noopener noreferrer">argentina.gob.ar/aaip</a>.
+  </p>
+</dialog>
+
+<!-- TÉRMINOS -->
+<dialog
+  class="legal-dialog"
+  id="terms-dialog"
+  aria-labelledby="terms-title"
+>
+  <button class="legal-close" type="button"
+    data-close-dialog aria-label="Cerrar términos">×</button>
+
+  <h2 id="terms-title">Términos de uso</h2>
+  <p><small>Última actualización: 18 de octubre de 2026.</small></p>
+
+  <h3>Sobre esta web</h3>
+  <p>
+    Este sitio presenta nuestros servicios, formas de trabajo y
+    una selección de proyectos. Enviar una consulta no implica
+    contratar un servicio.
+  </p>
+
+  <h3>Propuestas y contratación</h3>
+  <p>
+    El alcance, los entregables, los plazos, los honorarios,
+    las revisiones y los derechos de uso se acuerdan por escrito
+    en cada propuesta. Las promociones están sujetas al alcance,
+    la disponibilidad y las condiciones indicadas en esa propuesta.
+  </p>
+
+  <h3>Trabajos y propiedad intelectual</h3>
+  <p>
+    Los trabajos se muestran como referencia de experiencia.
+    Las marcas, imágenes y contenidos pertenecen a sus respectivos
+    titulares. Su publicación no autoriza su reproducción,
+    modificación ni uso comercial.
+  </p>
+
+  <h3>Enlaces externos</h3>
+  <p>
+    Algunos enlaces llevan a portfolios, redes y servicios de
+    terceros. Sus contenidos y condiciones dependen de cada proveedor.
+  </p>
+
+  <h3>Contacto</h3>
+  <p>
+    Para consultas sobre el sitio, escribí a
+    <a href="mailto:pabloezequielfontenez@gmail.com">
+      pabloezequielfontenez@gmail.com
+    </a>.
+    Estos términos no limitan los derechos reconocidos por
+    la normativa aplicable.
+  </p>
+</dialog>
+
+<!-- PREFERENCIAS -->
+<dialog
+  class="legal-dialog"
+  id="cookies-dialog"
+  aria-labelledby="cookies-title"
+>
+  <button class="legal-close" type="button"
+    data-close-dialog aria-label="Cerrar preferencias">×</button>
+
+  <h2 id="cookies-title">Tus preferencias</h2>
+
+  <p>
+    Elegí qué tecnologías opcionales permitís.
+    Podés cambiar tu elección desde el pie de la página.
+  </p>
+
+  <div class="cookie-option">
+    <span>
+      <strong>Necesarias — siempre activas</strong>
+      <small>
+        Guardamos tu elección en este navegador durante 180 días.
+        El alojamiento, las tipografías y el formulario pueden
+        requerir conexiones con sus proveedores.
+      </small>
+    </span>
+  </div>
+
+  <label class="cookie-option">
+    <input type="checkbox" id="consent-analytics">
+    <span>
+      <strong>Analítica</strong>
+      <small>
+        Permite medir visitas e interacciones con Google Analytics,
+        como los clics en WhatsApp.
+      </small>
+    </span>
+  </label>
+
+  <label class="cookie-option">
+    <input type="checkbox" id="consent-marketing">
+    <span>
+      <strong>Publicidad</strong>
+      <small>
+        Permite usar Google Ads y el píxel de Meta cuando estén
+        configurados, para medir anuncios y crear audiencias.
+      </small>
+    </span>
+  </label>
+
+  <p>
+    Al retirar una autorización se recarga la página para detener
+    las etiquetas cargadas. Esto no elimina información ya enviada
+    a los proveedores.
+  </p>
+
+  <div class="cookie-actions">
+    <button type="button" data-cookie-choice="reject">
+      Solo necesarias
+    </button>
+    <button type="button" class="cookie-primary" id="save-cookies">
+      Guardar preferencias
+    </button>
+  </div>
+
+  <p id="cookie-save-error" role="status" hidden></p>
+</dialog>
+
+<!-- AVISO INICIAL -->
+<div
+  class="cookie-banner"
+  id="cookie-banner"
+  role="region"
+  aria-label="Preferencias de cookies"
+  hidden
+>
+  <p>
+    <strong>Vos elegís.</strong><br>
+    Usamos tecnologías opcionales para medir visitas y,
+    cuando estén configuradas, acciones publicitarias.
+    Podés aceptar, rechazar o elegir por categoría.
+  </p>
+
+  <div class="cookie-actions">
+    <button type="button" data-cookie-choice="reject">
+      Rechazar
+    </button>
+
+    <button type="button" data-open-dialog="cookies-dialog">
+      Configurar
+    </button>
+
+    <button type="button" class="cookie-primary"
+      data-cookie-choice="accept">
+      Aceptar
+    </button>
+  </div>
+
+  <p id="cookie-banner-error" role="status" hidden></p>
+</div>
+
+<script>
+  (() => {
+    const banner = document.querySelector('#cookie-banner');
+    const analytics = document.querySelector('#consent-analytics');
+    const marketing = document.querySelector('#consent-marketing');
+    const cookieDialog = document.querySelector('#cookies-dialog');
+
+    document.querySelector('#footer-year').textContent =
+      new Date().getFullYear();
+
+    banner.hidden = Boolean(window.sdCookiePreferences);
+
+    function syncOptions() {
+      analytics.checked =
+        Boolean(window.sdCookiePreferences?.analytics);
+
+      marketing.checked =
+        Boolean(window.sdCookiePreferences?.marketing);
+    }
+
+    document.querySelectorAll('[data-open-dialog]').forEach(button => {
+      button.addEventListener('click', () => {
+        const dialog = document.getElementById(button.dataset.openDialog);
+        if (dialog === cookieDialog) syncOptions();
+        dialog.showModal();
+      });
+    });
+
+    document.querySelectorAll('[data-close-dialog]').forEach(button => {
+      button.addEventListener('click', () => {
+        button.closest('dialog').close();
+      });
+    });
+
+    document.querySelectorAll('.legal-dialog').forEach(dialog => {
+      dialog.addEventListener('click', event => {
+        const rect = dialog.getBoundingClientRect();
+
+        if (
+          event.target === dialog &&
+          (
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom
+          )
+        ) {
+          dialog.close();
+        }
+      });
+    });
+
+    function clearOptionalCookies() {
+      const domains = new Set(['', location.hostname]);
+
+      const parts = location.hostname.split('.');
+      for (let i = 0; i < parts.length - 1; i++) {
+        domains.add('.' + parts.slice(i).join('.'));
+      }
+
+      const paths = new Set(['/']);
+      const segments = location.pathname.split('/').filter(Boolean);
+      let path = '';
+
+      segments.forEach(segment => {
+        path += '/' + segment;
+        paths.add(path);
+        paths.add(path + '/');
+      });
+
+      document.cookie.split(';').forEach(cookie => {
+        const name = cookie.split('=')[0].trim();
+
+        if (!/^(_ga|_gid|_gat|_gcl|_fbp|_fbc)(_|$)/.test(name)) return;
+
+        domains.forEach(domain => {
+          paths.forEach(cookiePath => {
+            document.cookie =
+              name + '=; Max-Age=0; Path=' + cookiePath +
+              (domain ? '; Domain=' + domain : '') +
+              '; SameSite=Lax';
+          });
+        });
+      });
+    }
+
+    function savePreferences(allowAnalytics, allowMarketing) {
+      const preferences = {
+        version: 1,
+        analytics: allowAnalytics,
+        marketing: allowMarketing,
+        savedAt: Date.now()
+      };
+
+      try {
+        localStorage.setItem(
+          'sd_cookie_preferences',
+          JSON.stringify(preferences)
+        );
+      } catch (error) {
+        const message =
+          'El navegador no permite guardar tu elección. ' +
+          'Revisá sus opciones de almacenamiento.';
+
+        ['cookie-save-error', 'cookie-banner-error'].forEach(id => {
+          const element = document.getElementById(id);
+          element.textContent = message;
+          element.hidden = false;
+        });
+
+        return;
+      }
+
+      const previous = window.sdCookiePreferences;
+
+      gtag('consent', 'update', {
+        analytics_storage: allowAnalytics ? 'granted' : 'denied',
+        ad_storage: allowMarketing ? 'granted' : 'denied',
+        ad_user_data: allowMarketing ? 'granted' : 'denied',
+        ad_personalization: allowMarketing ? 'granted' : 'denied'
+      });
+
+      window.sdCookiePreferences = preferences;
+
+      const withdrawn =
+        (previous?.analytics && !allowAnalytics) ||
+        (previous?.marketing && !allowMarketing);
+
+      if (withdrawn) {
+        clearOptionalCookies();
+        location.reload();
+        return;
+      }
+
+      banner.hidden = true;
+      cookieDialog.close();
+
+      if (allowAnalytics || allowMarketing) {
+        window.sdLoadTagManager();
+      }
+
+      dataLayer.push({
+        event: 'sd_consent_updated',
+        sd_analytics_consent: allowAnalytics,
+        sd_marketing_consent: allowMarketing
+      });
+    }
+
+    document.querySelectorAll('[data-cookie-choice]').forEach(button => {
+      button.addEventListener('click', () => {
+        const accept = button.dataset.cookieChoice === 'accept';
+        savePreferences(accept, accept);
+      });
+    });
+
+    document.querySelector('#save-cookies').addEventListener('click', () => {
+      savePreferences(analytics.checked, marketing.checked);
+    });
+  })();
+</script>
 </body>
 
 </html>
